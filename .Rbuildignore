@@ -1,3 +1,4 @@
 ^oenb\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+^\.travis\.yml$
