@@ -1,0 +1,72 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# oenb
+
+[![CRAN status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
+[![Travis build status](https://travis-ci.org/franzmohr/oenb.svg?branch=master)](https://travis-ci.org/franzmohr/oenb)
+
+`oenb` provides functions for the use of the statistical data webservice of the Austrian national bank (Oesterreichische Nationalbank, OeNB).
+
+## Installation
+
+### Development version
+
+```{r github, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("franzmohr/oenb")
+```
+
+## Usage
+
+```{r}
+library(oenb)
+```
+
+
+### Table of content
+
+```{r}
+toc <- oenb_toc()
+head(toc)
+```
+
+### Dataset overview
+
+```{r}
+overview <- oenb_dataset(id = "11")
+head(overview)
+```
+
+### Attributes of a series
+
+```{r}
+attrib <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
+attrib
+```
+
+### Data download
+
+```{r}
+series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
+```
+
+### Metadata
+
+```{r}
+meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
+meta
+```
+

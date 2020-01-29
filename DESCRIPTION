@@ -1,0 +1,15 @@
+Package: oenb
+  Title: Tools for the OeNB Data Webservice
+Version: 0.0.1
+Authors@R: person("Franz X.", "Mohr", email = "franz.mohr@fma.gv.at", role = c("aut","cre"))
+Description: Tools to download data from the OeNB's data webservice <https://www.oenb.at/en/Statistics.html>.
+License: GPL (>= 2)
+Imports: dplyr, XML
+LazyData: true
+RoxygenNote: 6.1.1
+Encoding: UTF-8
+URL: https://github.com/franzmohr/oenb
+BugReports: https://github.com/franzmohr/oenb/issues
+Suggests: 
+    knitr,
+    rmarkdown
