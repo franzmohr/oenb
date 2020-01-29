@@ -1,5 +1,5 @@
 Package: oenb
-  Title: Tools for the OeNB Data Webservice
+Title: Tools for the OeNB Data Webservice
 Version: 0.0.1
 Authors@R: person("Franz X.", "Mohr", email = "franz.mohr@fma.gv.at", role = c("aut","cre"))
 Description: Tools to download data from the OeNB's data webservice <https://www.oenb.at/en/Statistics.html>.
