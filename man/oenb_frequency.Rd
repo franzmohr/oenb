@@ -22,7 +22,7 @@ German and "EN" for English (default).}
 A data frame containing available frequencies and periods of a series.
 }
 \description{
-Get potential frequencies of individual series from the OeNB's data webservice.
+Get available frequencies and periods of individual series from the OeNB's data web service.
 }
 \examples{
 series_freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")

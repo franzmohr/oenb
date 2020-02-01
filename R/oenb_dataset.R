@@ -1,6 +1,6 @@
-#' Content of OeNB Datasets
+#' Content of OeNB Data Sets
 #'
-#' Downloads a description of the contents of a specific dataset from the OeNB's data webservice.
+#' Downloads a description of the contents of a specific dataset from the OeNB's data web service.
 #'
 #' @param id character specifying the ID of the dataset of interest.
 #' See \code{\link{oenb_toc}} to obtain the required ID.
@@ -34,6 +34,6 @@ oenb_dataset <- function(id, lang = "EN") {
   code <- XML::xpathSApply(xml, filter, XML::xmlGetAttr, "id")
 
   result <- data.frame(code, do.call(rbind, series))
-  names(result) <- c("Position Code", "Indicator")
+  names(result) <- c("position_code", "description")
   return(result)
 }

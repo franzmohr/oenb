@@ -1,6 +1,4 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # oenb
 
 [![CRAN
@@ -8,10 +6,16 @@ status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/p
 [![Travis build
 status](https://travis-ci.org/franzmohr/oenb.svg?branch=master)](https://travis-ci.org/franzmohr/oenb)
 
-`oenb` provides functions for the use of the statistical data webservice
-of the Austrian national bank (Oesterreichische Nationalbank, OeNB).
+The `oenb` R packages provides tools to access statistical data [web
+service of the Austrian central
+bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
+(Oesterreichische Nationalbank, OeNB).
 
 ## Installation
+
+<!-- ```{r cran, eval = FALSE} 
+install.packages("oenb") 
+``` -->
 
 ### Development version
 
@@ -26,7 +30,11 @@ devtools::install_github("franzmohr/oenb")
 library(oenb)
 ```
 
-### Table of content
+### Table of contents
+
+A table of available data sets can be obtained with the function
+`oenb_toc`. Its output contains the ID of the data set with a short
+description.
 
 ``` r
 toc <- oenb_toc()
@@ -41,6 +49,11 @@ head(toc)
 ```
 
 ### Dataset overview
+
+Each data set contains a series of indicators. The function
+`oenb_dataset` can be used to obtain a table of available series for a
+given data set. Its output contains the position code of a series and a
+short description.
 
 ``` r
 overview <- oenb_dataset(id = "11")
@@ -63,6 +76,10 @@ head(overview)
 
 ### Attributes of a series
 
+Many series are available in different forms. The function
+`oenb_attributes` obtains a table of available query specifications of a
+given series.
+
 ``` r
 attrib <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 attrib
@@ -78,13 +95,30 @@ attrib
 #> 4                Not applicable
 ```
 
+Furthermore, series are available in different frequencies. The function
+`oenb_frequency` can be used to obtain the available frequencies of a
+given series and the periods, for which data are available.
+
+``` r
+freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
+freq
+#>   Frequency   Available.Periods
+#> 1         A         1998 - 2019
+#> 2         M Jan.  98 - Dec.  19
+```
+
 ### Data download
+
+Series of a data set can be downloaded with the `oenb_data` function.
 
 ``` r
 series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
 ```
 
 ### Metadata
+
+Metadata on a specific series can be obtained with the function
+`oenb_metadata`.
 
 ``` r
 meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")

@@ -20,7 +20,7 @@ German and "EN" for English (default).}
 A data frame containing metadata on an indicator.
 }
 \description{
-Get metadata on individual series from the OeNB's data webservice.
+Get metadata on individual series from the OeNB's data web service.
 }
 \examples{
 meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")

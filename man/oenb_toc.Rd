@@ -14,7 +14,7 @@ German and "EN" for English (default).}
 A data frame containing the IDs and titles of available datasets.
 }
 \description{
-Downloads the table of contents of the OeNB's data webservice.
+Downloads the table of contents of the OeNB's statistical data web service.
 }
 \examples{
 

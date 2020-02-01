@@ -33,7 +33,7 @@ German and "EN" for English (default).}
 A data frame.
 }
 \description{
-Download data sets from the OeNB's data webservice \url{https://www.oenb.at/en/Statistics.html}.
+Download data sets from the OeNB's data web service \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.
 }
 \examples{
 

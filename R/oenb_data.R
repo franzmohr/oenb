@@ -1,6 +1,6 @@
 #' Download OeNB Data
 #'
-#' Download data sets from the OeNB's data webservice \url{https://www.oenb.at/en/Statistics.html}.
+#' Download data sets from the OeNB's data web service \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.
 #'
 #' @param pos character vector specifying the position IDs of the indicators of interest.
 #' See \code{\link{oenb_dataset}} to obtain the required ID.

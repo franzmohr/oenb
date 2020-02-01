@@ -2,7 +2,7 @@
 % Please edit documentation in R/oenb_dataset.R
 \name{oenb_dataset}
 \alias{oenb_dataset}
-\title{Content of OeNB Datasets}
+\title{Content of OeNB Data Sets}
 \usage{
 oenb_dataset(id, lang = "EN")
 }
@@ -17,7 +17,7 @@ German and "EN" for English (default).}
 A data frame containing the IDs and names of available indicators within a dataset.
 }
 \description{
-Downloads a description of the contents of a specific dataset from the OeNB's data webservice.
+Downloads a description of the contents of a specific dataset from the OeNB's data web service.
 }
 \examples{
 content <- oenb_dataset(id = 11)

@@ -1,6 +1,6 @@
 #' Get Metadata
 #'
-#' Get metadata on individual series from the OeNB's data webservice.
+#' Get metadata on individual series from the OeNB's data web service.
 #'
 #' @param pos character specifying the position ID of the indicator of interest.
 #' See \code{\link{oenb_dataset}} to obtain the required ID.
@@ -25,8 +25,8 @@ oenb_metadata <- function(id, pos, lang = "EN") {
 
   result <- NULL
   for (i in pos) {
-    temp <- data.frame("Attribute" = names(meta)[i],
-                       "Remark" = meta[[i]], stringsAsFactors = FALSE)
+    temp <- data.frame("attribute" = names(meta)[i],
+                       "description" = meta[[i]], stringsAsFactors = FALSE)
     result <- rbind(result, temp)
   }
 

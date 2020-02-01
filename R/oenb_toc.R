@@ -1,6 +1,6 @@
 #' Table of Contents
 #'
-#' Downloads the table of contents of the OeNB's data webservice.
+#' Downloads the table of contents of the OeNB's statistical data web service.
 #'
 #' @param lang Preferred language of the output. Possible values are "DE" for
 #' German and "EN" for English (default).
@@ -20,6 +20,6 @@ oenb_toc <- function(lang = "EN") {
   out <- XML::getNodeSet(xml, "//element", fun = XML::xmlToDataFrame, stringsAsFactors = FALSE)
   code <- XML::xpathSApply(xml, "//element", XML::xmlGetAttr, "id")
   result <- data.frame(code, do.call(rbind, out), stringsAsFactors = FALSE)
-  names(result) <- c("ID", "Title")
+  names(result) <- c("dataset_id", "description")
   return(result)
 }

@@ -1,6 +1,6 @@
 #' Get Frequency
 #'
-#' Get potential frequencies of individual series from the OeNB's data webservice.
+#' Get available frequencies and periods of individual series from the OeNB's data web service.
 #'
 #' @param pos character specifying the position ID of the indicator of interest.
 #' See \code{\link{oenb_dataset}} to obtain the required ID.
@@ -27,8 +27,8 @@ oenb_frequency <- function(id, pos, div, lang = "EN") {
   avail <- XML::getNodeSet(xml, "//periods/available", fun = XML::xmlToList)
   avail <- unlist(avail)
 
-  result <- data.frame("Frequency" = freq,
-                       "Available Periods" = avail,
+  result <- data.frame("frequency" = freq,
+                       "available_period" = avail,
                        stringsAsFactors = FALSE)
 
   return(result)

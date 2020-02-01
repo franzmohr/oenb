@@ -20,7 +20,7 @@ German and "EN" for English (default).}
 A data frame containing potential attributes of a series.
 }
 \description{
-Get potential attributes of individual series from the OeNB's data webservice.
+Get potential attributes of individual series from the OeNB's data web service.
 }
 \examples{
 series_attr <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")

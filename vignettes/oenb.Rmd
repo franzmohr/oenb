@@ -1,28 +1,28 @@
 ---
-output: github_document
+title: "Tutorial / vignette for the oenb R package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{oenb}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
 
-# oenb
-
-[![CRAN status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
-[![Travis build status](https://travis-ci.org/franzmohr/oenb.svg?branch=master)](https://travis-ci.org/franzmohr/oenb)
+## Introduction
 
 The `oenb` R packages provides tools to access statistical data [web service of the Austrian central bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html) (Oesterreichische Nationalbank, OeNB).
 
 ## Installation
 
-<!-- ```{r cran, eval = FALSE} 
+```{r cran, eval = FALSE} 
 install.packages("oenb") 
-``` -->
+```
 
 ### Development version
 
