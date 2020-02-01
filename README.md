@@ -39,13 +39,13 @@ description.
 ``` r
 toc <- oenb_toc()
 head(toc)
-#>          ID                                                    Title
-#> 1         1                 OeNB, Eurosystem and Monetary Indicators
-#> 2        11 Balance Sheet Items of the Oesterreichische Nationalbank
-#> 3        13      Monetary Aggregates, Consolidated MFI Balance Sheet
-#> 4        14             Debt Instruments, Deposits and Loans of MFIs
-#> 5 100140001                                     Development of loans
-#> 6 100140002             Debt Instruments, Deposits and Loans of MFIs
+#>   dataset_id                                              description
+#> 1          1                 OeNB, Eurosystem and Monetary Indicators
+#> 2         11 Balance Sheet Items of the Oesterreichische Nationalbank
+#> 3         13      Monetary Aggregates, Consolidated MFI Balance Sheet
+#> 4         14             Debt Instruments, Deposits and Loans of MFIs
+#> 5  100140001                                     Development of loans
+#> 6  100140002             Debt Instruments, Deposits and Loans of MFIs
 ```
 
 ### Dataset overview
@@ -58,14 +58,14 @@ short description.
 ``` r
 overview <- oenb_dataset(id = "11")
 head(overview)
-#>    Position Code
+#>    position_code
 #> 1 VDBFKBSC217000
 #> 2 VDBFKBSC217001
 #> 3 VDBFKBSC217013
 #> 4 VDBFKBSC217010
 #> 5 VDBFKBSC317000
 #> 6 VDBFKBSC317001
-#>                                                                        Indicator
+#>                                                                      description
 #> 1                                           Loans to euro area residents - total
 #> 2                                            Loans to euro area residents - MFIs
 #> 3                              Loans to euro area residents - general government
@@ -83,12 +83,12 @@ given series.
 ``` r
 attrib <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 attrib
-#>   Attribute Code                 Attribute Value Code
+#>   attribute_code                 attribute value_code
 #> 1          dval1             Data producer         AT
 #> 2          dval2            Banking sector    00100KI
 #> 3          dval3 Region / business partner         AT
 #> 4          dval4                  Currency        Z0Z
-#>                           Value
+#>                           value
 #> 1                       Austria
 #> 2 Oesterreichische Nationalbank
 #> 3                       Austria
@@ -102,7 +102,7 @@ given series and the periods, for which data are available.
 ``` r
 freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 freq
-#>   Frequency   Available.Periods
+#>   frequency    available_period
 #> 1         A         1998 - 2019
 #> 2         M Jan.  98 - Dec.  19
 ```
@@ -123,7 +123,7 @@ Metadata on a specific series can be obtained with the function
 ``` r
 meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
 meta
-#>         Attribute
+#>         attribute
 #> 1           title
 #> 2          region
 #> 3            unit
@@ -134,7 +134,7 @@ meta
 #> 8     last_update
 #> 9          source
 #> 10            lag
-#>                                                                                                         Remark
+#>                                                                                                    description
 #> 1                                                                         Loans to euro area residents - total
 #> 2                                                                                                            -
 #> 3                                                                                                         Euro
