@@ -20,13 +20,13 @@ The `oenb` R packages provides tools to access statistical data [web service of 
 
 ## Installation
 
-<!-- ```{r cran, eval = FALSE} 
+```{r, eval = FALSE} 
 install.packages("oenb") 
-``` -->
+```
 
 ### Development version
 
-```{r github, eval = FALSE}
+```{r, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("franzmohr/oenb")
 ```
@@ -34,7 +34,7 @@ devtools::install_github("franzmohr/oenb")
 ## Usage
 
 ```{r}
-library(oenb)
+library("oenb")
 ```
 
 ### Table of contents

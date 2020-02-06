@@ -13,9 +13,9 @@ bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
 
 ## Installation
 
-<!-- ```{r cran, eval = FALSE} 
+``` r
 install.packages("oenb") 
-``` -->
+```
 
 ### Development version
 
@@ -27,7 +27,7 @@ devtools::install_github("franzmohr/oenb")
 ## Usage
 
 ``` r
-library(oenb)
+library("oenb")
 ```
 
 ### Table of contents
