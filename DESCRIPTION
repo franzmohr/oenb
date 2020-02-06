@@ -4,6 +4,7 @@ Version: 0.0.1
 Authors@R: person("Franz X.", "Mohr", email = "oenb.r@outlook.com", role = c("aut","cre"))
 Description: Tools to access data from the OeNB data web service <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>.
 License: GPL (>= 2)
+Depends: R (>= 3.2.0)
 Imports: dplyr, XML
 LazyData: true
 RoxygenNote: 6.1.1
