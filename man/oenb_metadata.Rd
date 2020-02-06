@@ -23,7 +23,9 @@ A data frame containing metadata on an indicator.
 Get metadata on individual series from the OeNB's data web service.
 }
 \examples{
+\dontrun{
 meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
 meta
+}
 
 }

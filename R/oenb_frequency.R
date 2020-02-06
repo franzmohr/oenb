@@ -10,8 +10,10 @@
 #' @return A data frame containing available frequencies and periods of a series.
 #'
 #' @examples
+#' \dontrun{
 #' series_freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 #' series_freq
+#' }
 #'
 #' @export
 oenb_frequency <- function(id, pos, div, lang = "EN") {

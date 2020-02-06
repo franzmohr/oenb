@@ -9,8 +9,10 @@
 #' @return A data frame containing potential attributes of a series.
 #'
 #' @examples
+#' \dontrun{
 #' series_attr <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 #' series_attr
+#' }
 #'
 #' @export
 oenb_attributes <- function(id, pos, lang = "EN") {

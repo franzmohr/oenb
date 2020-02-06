@@ -8,9 +8,10 @@
 #' @return A data frame containing the IDs and titles of available datasets.
 #'
 #' @examples
-#'
+#' \dontrun{
 #' toc <- oenb_toc()
 #' toc
+#' }
 #'
 #' @export
 oenb_toc <- function(lang = "EN") {

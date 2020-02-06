@@ -9,8 +9,10 @@
 #' @return A data frame containing the IDs and names of available indicators within a dataset.
 #'
 #' @examples
+#' \dontrun{
 #' content <- oenb_dataset(id = 11)
 #' content
+#' }
 #'
 #' @export
 oenb_dataset <- function(id, lang = "EN") {

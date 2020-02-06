@@ -20,7 +20,9 @@ A data frame containing the IDs and names of available indicators within a datas
 Downloads a description of the contents of a specific dataset from the OeNB's data web service.
 }
 \examples{
+\dontrun{
 content <- oenb_dataset(id = 11)
 content
+}
 
 }

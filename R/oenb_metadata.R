@@ -9,8 +9,10 @@
 #' @return A data frame containing metadata on an indicator.
 #'
 #' @examples
+#' \dontrun{
 #' meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
 #' meta
+#' }
 #'
 #' @export
 oenb_metadata <- function(id, pos, lang = "EN") {

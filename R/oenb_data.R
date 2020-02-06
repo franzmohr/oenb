@@ -18,9 +18,10 @@
 #' @return A data frame.
 #'
 #' @examples
-#'
+#' \dontrun{
 #' series <- oenb_data(id = "11", pos = "VDBFKBSC217000", freq = "M", attr = c("dval1" = "AT"))
 #' series
+#' }
 #'
 #' @export
 oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endtime = NULL, lang = "EN") {

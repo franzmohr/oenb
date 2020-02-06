@@ -25,7 +25,9 @@ A data frame containing available frequencies and periods of a series.
 Get available frequencies and periods of individual series from the OeNB's data web service.
 }
 \examples{
+\dontrun{
 series_freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 series_freq
+}
 
 }
