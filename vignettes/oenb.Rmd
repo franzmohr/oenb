@@ -33,7 +33,7 @@ devtools::install_github("franzmohr/oenb")
 
 ## Usage
 
-```{r}
+```{r, eval = FALSE}
 library(oenb)
 ```
 
@@ -41,7 +41,7 @@ library(oenb)
 
 A table of available data sets can be obtained with the function `oenb_toc`. Its output contains the ID of the data set with a short description.
 
-```{r}
+```{r, eval = FALSE}
 toc <- oenb_toc()
 head(toc)
 ```
@@ -50,7 +50,7 @@ head(toc)
 
 Each data set contains a series of indicators. The function `oenb_dataset` can be used to obtain a table of available series for a given data set. Its output contains the position code of a series and a short description.
 
-```{r}
+```{r, eval = FALSE}
 overview <- oenb_dataset(id = "11")
 head(overview)
 ```
@@ -59,14 +59,14 @@ head(overview)
 
 Many series are available in different forms. The function `oenb_attributes` obtains a table of available query specifications of a given series.
 
-```{r}
+```{r, eval = FALSE}
 attrib <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 attrib
 ```
 
 Furthermore, series are available in different frequencies. The function `oenb_frequency` can be used to obtain the available frequencies of a given series and the periods, for which data are available.
 
-```{r}
+```{r, eval = FALSE}
 freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 freq
 ```
@@ -75,7 +75,7 @@ freq
 
 Series of a data set can be downloaded with the `oenb_data` function.
 
-```{r}
+```{r, eval = FALSE}
 series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
 ```
 
@@ -83,7 +83,7 @@ series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
 
 Metadata on a specific series can be obtained with the function `oenb_metadata`.
 
-```{r}
+```{r, eval = FALSE}
 meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
 meta
 ```
