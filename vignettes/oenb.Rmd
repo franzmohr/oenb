@@ -34,7 +34,7 @@ devtools::install_github("franzmohr/oenb")
 ## Usage
 
 ```{r, eval = FALSE}
-library(oenb)
+library("oenb")
 ```
 
 ### Table of contents
