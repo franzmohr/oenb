@@ -53,19 +53,22 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
   series <- XML::getNodeSet(xml, "//dataSet", fun = XML::xmlToList)
 
   result <- NULL
-  for (i in 1:length(series)) {
-    val_temp <- do.call(rbind, series[[i]]$values)
-    period_temp <- val_temp[, "periode"]
-    val_temp <- as.numeric(val_temp[, "value"])
-    attr_temp <- as.data.frame(t(series[[i]]$.attrs), stringsAsFactors = FALSE)
-    temp <- cbind("period" = period_temp,
-                  attr_temp,
-                  "value" = val_temp,
-                  stringsAsFactors = FALSE)
-    result <- rbind(result, temp)
-  }
 
-  names(result) <- tolower(names(result))
+  if (length(series) > 0) {
+    for (i in 1:length(series)) {
+      val_temp <- do.call(rbind, series[[i]]$values)
+      period_temp <- val_temp[, "periode"]
+      val_temp <- as.numeric(val_temp[, "value"])
+      attr_temp <- as.data.frame(t(series[[i]]$.attrs), stringsAsFactors = FALSE)
+      temp <- cbind("period" = period_temp,
+                    attr_temp,
+                    "value" = val_temp,
+                    stringsAsFactors = FALSE)
+      result <- rbind(result, temp)
+    }
+
+    names(result) <- tolower(names(result))
+  }
 
   return(result)
 }
