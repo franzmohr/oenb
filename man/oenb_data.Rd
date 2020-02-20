@@ -36,7 +36,7 @@ A data frame.
 Download data sets from the OeNB's data web service \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 series <- oenb_data(id = "11", pos = "VDBFKBSC217000", freq = "M", attr = c("dval1" = "AT"))
 series
 }

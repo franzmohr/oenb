@@ -9,7 +9,7 @@
 #' @return A data frame containing potential attributes of a series.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' series_attr <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 #' series_attr
 #' }

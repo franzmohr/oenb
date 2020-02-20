@@ -9,7 +9,7 @@
 #' @return A data frame containing metadata on an indicator.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' meta <- oenb_metadata(id = "11", pos = "VDBFKBSC217000")
 #' meta
 #' }

@@ -9,7 +9,7 @@
 #' @return A data frame containing the IDs and names of available indicators within a dataset.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' content <- oenb_dataset(id = 11)
 #' content
 #' }

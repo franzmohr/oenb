@@ -17,7 +17,7 @@ A data frame containing the IDs and titles of available datasets.
 Downloads the table of contents of the OeNB's statistical data web service.
 }
 \examples{
-\dontrun{
+\donttest{
 toc <- oenb_toc()
 toc
 }

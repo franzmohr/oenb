@@ -23,7 +23,7 @@ A data frame containing potential attributes of a series.
 Get potential attributes of individual series from the OeNB's data web service.
 }
 \examples{
-\dontrun{
+\donttest{
 series_attr <- oenb_attributes(id = "11", pos = "VDBFKBSC217000")
 series_attr
 }
