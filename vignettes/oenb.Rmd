@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-The `oenb` R packages provides tools to access statistical data [web service of the Austrian central bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html) (Oesterreichische Nationalbank, OeNB).
+The `oenb` R packages provides tools to access statistical data via the [web service of the Austrian central bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html) (Oesterreichische Nationalbank, OeNB).
 
 ## Installation
 
@@ -76,7 +76,7 @@ freq
 Series of a data set can be downloaded with the `oenb_data` function.
 
 ```{r, eval = FALSE}
-series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
+series <- oenb_data(id = "11", pos = "VDBFKBSC217000", attr = c("dval3" = "AT"))
 ```
 
 ### Metadata

@@ -6,8 +6,8 @@ status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/p
 [![Travis build
 status](https://travis-ci.org/franzmohr/oenb.svg?branch=master)](https://travis-ci.org/franzmohr/oenb)
 
-The `oenb` R packages provides tools to access statistical data [web
-service of the Austrian central
+The `oenb` R package provides tools to access statistical data via the
+[web service of the Austrian central
 bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html)
 (Oesterreichische Nationalbank, OeNB).
 
@@ -104,15 +104,16 @@ freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 freq
 #>   frequency    available_period
 #> 1         A         1998 - 2019
-#> 2         M Jan.  98 - Dec.  19
+#> 2         M Jan.  98 - Jan.  20
 ```
 
 ### Data download
 
-Series of a data set can be downloaded with the `oenb_data` function.
+Series of a data set can be downloaded with the `oenb_data`
+function.
 
 ``` r
-series <- oenb_data(id = "11", pos = "VDBFKBSC217000")
+series <- oenb_data(id = "11", pos = "VDBFKBSC217000", attr = c("dval3" = "AT"))
 ```
 
 ### Metadata
@@ -142,7 +143,7 @@ meta
 #> 5                                                                          European Sytem of National Accounts
 #> 6                                                                                                            -
 #> 7                                                                                                        month
-#> 8                                                                                          2020-01-14 09:02:36
+#> 8                                                                                          2020-02-14 09:02:32
 #> 9                                                                                                         OeNB
 #> 10                                                                                                           -
 ```

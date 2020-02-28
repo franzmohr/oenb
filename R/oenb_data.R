@@ -53,7 +53,6 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
   series <- XML::getNodeSet(xml, "//dataSet", fun = XML::xmlToList)
 
   result <- NULL
-
   if (length(series) > 0) {
     for (i in 1:length(series)) {
       val_temp <- do.call(rbind, series[[i]]$values)
@@ -66,9 +65,16 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
                     stringsAsFactors = FALSE)
       result <- rbind(result, temp)
     }
-
     names(result) <- tolower(names(result))
   }
+
+  temp_pos <- which(grepl("dval", names(result), fixed = TRUE))
+  temp_frst <- 1:(temp_pos[1] - 1)
+  temp_scnd <- (temp_pos[length(temp_pos)] + 1):length(names(result))
+  temp_names <- names(result)[temp_pos]
+  temp_pos <- temp_pos[order(temp_names)]
+  temp_pos <- c(temp_frst, temp_pos, temp_scnd)
+  result <- result[, temp_pos]
 
   return(result)
 }
