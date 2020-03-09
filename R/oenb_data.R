@@ -15,11 +15,19 @@
 #' @param endtime character specifying the end of the series. See 'Details'.
 #' @inheritParams oenb_dataset
 #'
+#' @details The arguments `starttime` and `endtime` can have the format `YYYY-MM-DD` or
+#' `YYYYMMDD` for daily data, `YYYY-MM` or `YYYYMM` for monthly data, and `YYYY` for
+#' annual data. For semiannual data `YYYY-06` refers to the first half of year `YYYY` and
+#' `YYYY-12` to the second. Similarly, for quarterly data `YYYY-03`, `YYYY-06`, `YYYY-09`
+#' and `YYYY-12` refer to the first, second, third and forth quarter of year `YYYY`,
+#' respectively.
+#'
 #' @return A data frame.
 #'
 #' @examples
 #' \donttest{
-#' series <- oenb_data(id = "11", pos = "VDBFKBSC217000", freq = "M", attr = c("dval1" = "AT"))
+#' series <- oenb_data(id = "11", pos = "VDBFKBSC217000", freq = "M", attr = c("dval1" = "AT"),
+#'                     starttime = "2019-11", endtime = "2019-12")
 #' series
 #' }
 #'

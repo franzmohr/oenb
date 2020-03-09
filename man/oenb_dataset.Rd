@@ -21,7 +21,7 @@ Downloads a description of the contents of a specific dataset from the OeNB's da
 }
 \examples{
 \donttest{
-content <- oenb_dataset(id = 11)
+content <- oenb_dataset(id = "11")
 content
 }
 

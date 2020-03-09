@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' \donttest{
-#' content <- oenb_dataset(id = 11)
+#' content <- oenb_dataset(id = "11")
 #' content
 #' }
 #'

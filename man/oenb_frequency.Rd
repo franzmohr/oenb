@@ -4,7 +4,7 @@
 \alias{oenb_frequency}
 \title{Get Frequency}
 \usage{
-oenb_frequency(id, pos, div, lang = "EN")
+oenb_frequency(id, pos, lang = "EN")
 }
 \arguments{
 \item{id}{character specifying the ID of the dataset of interest.
@@ -12,8 +12,6 @@ See \code{\link{oenb_toc}} to obtain the required ID.}
 
 \item{pos}{character specifying the position ID of the indicator of interest.
 See \code{\link{oenb_dataset}} to obtain the required ID.}
-
-\item{div}{a named vector of attributes.}
 
 \item{lang}{Preferred language of the output. Possible values are "DE" for
 German and "EN" for English (default).}
