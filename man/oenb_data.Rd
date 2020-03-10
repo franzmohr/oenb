@@ -4,8 +4,15 @@
 \alias{oenb_data}
 \title{Download OeNB Data}
 \usage{
-oenb_data(id, pos, freq = NULL, attr = NULL, starttime = NULL,
-  endtime = NULL, lang = "EN")
+oenb_data(
+  id,
+  pos,
+  freq = NULL,
+  attr = NULL,
+  starttime = NULL,
+  endtime = NULL,
+  lang = "EN"
+)
 }
 \arguments{
 \item{id}{character specifying the ID of the dataset of interest.
