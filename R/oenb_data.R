@@ -76,7 +76,13 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
     names(result) <- tolower(names(result))
   }
 
-  temp_pos <- which(grepl("dval", names(result), fixed = TRUE))
+  if (length(which(grepl("dval", names(result), fixed = TRUE))) != 0) {
+    temp_pos <- which(grepl("dval", names(result), fixed = TRUE))
+  }
+  # Added after OeNB seemed to have changed the output format of the xml
+  if (length(which(grepl("attr", names(result), fixed = TRUE))) != 0) {
+    temp_pos <- which(grepl("attr", names(result), fixed = TRUE))
+  }
   temp_frst <- 1:(temp_pos[1] - 1)
   temp_scnd <- (temp_pos[length(temp_pos)] + 1):length(names(result))
   temp_names <- names(result)[temp_pos]
