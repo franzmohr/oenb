@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 # oenb
 
 [![CRAN status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
-[![Travis build status](https://travis-ci.org/franzmohr/oenb.svg?branch=master)](https://travis-ci.org/franzmohr/oenb)
+[![Build Status](https://app.travis-ci.com/franzmohr/oenb.svg?branch=master)](https://app.travis-ci.com/franzmohr/oenb)
 
 The `oenb` R package provides tools to access statistical data via the [web service of the Austrian central bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html) (Oesterreichische Nationalbank, OeNB).
 

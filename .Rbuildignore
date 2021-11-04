@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^\.travis\.yml$
 dev_oenb.R
+^cran-comments\.md$
