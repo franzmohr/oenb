@@ -4,3 +4,4 @@
 ^\.travis\.yml$
 dev_oenb.R
 ^cran-comments\.md$
+^\.github$

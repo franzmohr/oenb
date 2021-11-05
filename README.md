@@ -3,8 +3,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
-[![Build
-Status](https://app.travis-ci.com/franzmohr/oenb.svg?branch=master)](https://app.travis-ci.com/franzmohr/oenb)
+[![R-CMD-check](https://github.com/franzmohr/oenb/workflows/R-CMD-check/badge.svg)](https://github.com/franzmohr/oenb/actions)
 
 The `oenb` R package provides tools to access statistical data via the
 [web service of the Austrian central
