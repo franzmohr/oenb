@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+  <header>
+    <prepared>2026-09-18T20:16:05Z</prepared>
+    <test>false</test>
+    <sender id="AT2">
+      <name>Oesterreichische Nationalbank</name>
+    </sender>
+    <last_update>2026-09-04T16:06:00Z</last_update>
+  </header>
+  <data_content>
+    <structure>
+      <dimension nr="1" name="BSI_REF_AREA" hidden="false">
+        <text lang="EN">Data producer</text>
+      </dimension>
+      <dimension nr="2" name="ADJUSTMENT" hidden="true">
+        <text lang="EN">Status</text>
+      </dimension>
+      <dimension nr="3" name="REPSEKTOR" hidden="true">
+        <text lang="EN">Reporting sector</text>
+      </dimension>
+      <dimension nr="4" name="LAUFZEIT" hidden="false">
+        <text lang="EN">Maturity</text>
+      </dimension>
+      <dimension nr="5" name="DATENTYPBSI" hidden="false">
+        <text lang="EN">Data type</text>
+      </dimension>
+      <dimension nr="6" name="BSI_COUNT_AREA" hidden="false">
+        <text lang="EN">Region / business partner</text>
+      </dimension>
+      <dimension nr="7" name="COUNTSEKTOR" hidden="false">
+        <text lang="EN">Economic sector</text>
+      </dimension>
+      <dimension nr="8" name="WAEHRUNG" hidden="true">
+        <text lang="EN">Currency</text>
+      </dimension>
+      <dimension nr="9" name="BSI_BALANCESHEET-SUFFIX" hidden="true">
+        <text lang="EN">Denomination</text>
+      </dimension>
+    </structure>
+    <data_available>
+      <data>
+        <dimension nr="1">
+          <auspraegung code="U2">
+            <text lang="EN">Euro area (changing composition)</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="2">
+          <auspraegung code="N">
+            <text lang="EN">Neither seasonally nor working day adjusted</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="3">
+          <auspraegung code="A">
+            <text lang="EN">Other MFIs (Credit institutions, Money market funds, Other inst.)</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="4">
+          <auspraegung code="A">
+            <text lang="EN">Total</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="5">
+          <auspraegung code="1">
+            <text lang="EN">Outstanding amounts at end of period</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="6">
+          <auspraegung code="U2">
+            <text lang="EN">Euro area (changing composition)</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="7">
+          <auspraegung code="2250">
+            <text lang="EN">Households and Nonprofit Institutions</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="8">
+          <auspraegung code="Z01">
+            <text lang="EN">Total</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="9">
+          <auspraegung code="E">
+            <text lang="EN">Euro</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data>
+        <dimension nr="1">
+          <auspraegung code="U2">
+            <text lang="EN">Euro area (changing composition)</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="2">
+          <auspraegung code="N">
+            <text lang="EN">Neither seasonally nor working day adjusted</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="3">
+          <auspraegung code="A">
+            <text lang="EN">Other MFIs (Credit institutions, Money market funds, Other inst.)</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="4">
+          <auspraegung code="A">
+            <text lang="EN">Total</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="5">
+          <auspraegung code="1">
+            <text lang="EN">Outstanding amounts at end of period</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="6">
+          <auspraegung code="U6">
+            <text lang="EN">domestic</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="7">
+          <auspraegung code="2250">
+            <text lang="EN">Households and Nonprofit Institutions</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="8">
+          <auspraegung code="Z01">
+            <text lang="EN">Total</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="9">
+          <auspraegung code="E">
+            <text lang="EN">Euro</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data>
+        <dimension nr="5">
+          <auspraegung code="4">
+            <text lang="EN">Financial transactions (flows)</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data>
+        <dimension nr="5">
+          <auspraegung code="I">
+            <text lang="EN">Index of Notional Stocks</text>
+          </auspraegung>
+        </dimension>
+        <dimension nr="9">
+          <auspraegung code="A">
+            <text lang="EN">Annual growth rate</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data>
+        <dimension nr="4">
+          <auspraegung code="F">
+            <text lang="EN">Up to 1 year</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data>
+        <dimension nr="4">
+          <auspraegung code="I">
+            <text lang="EN">Over 1 year and up to 5 years</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data>
+        <dimension nr="4">
+          <auspraegung code="J">
+            <text lang="EN">Over 5 years</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data>
+        <dimension nr="1">
+          <auspraegung code="AT">
+            <text lang="EN">AT</text>
+          </auspraegung>
+        </dimension>
+      </data>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+      <data/>
+    </data_available>
+  </data_content>
+</content>

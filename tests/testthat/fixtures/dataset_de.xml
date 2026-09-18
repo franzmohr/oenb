@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+<header>
+<prepared>2026-09-18T20:16:05Z</prepared>
+<test>false</test>
+<sender id="AT2">
+<name>Oesterreichische Nationalbank</name>
+</sender>
+<last_update>2026-09-18T20:16:05Z</last_update>
+</header>
+<groups>
+<group name="alle Daten">
+<position id="VDBFKBSC217000" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - Ingesamt</text>
+</position>
+<position id="VDBFKBSC217001" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - MFI</text>
+</position>
+<position id="VDBFKBSC217013" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - Öffentliche Haushalte</text>
+</position>
+<position id="VDBFKBSC217010" >
+<text lang="DE">Aktiva - Kredite an sonstige Ansässige im Euroraum</text>
+</position>
+<position id="VDBFKBSC317000" >
+<text lang="DE">Aktiva - Wertpapiere o Aktien v Ansässigen Euro-Währungsgebiet -  insges.</text>
+</position>
+<position id="VDBFKBSC317001" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien v ansässigen MFIs Euro-Währungsgebiet</text>
+</position>
+<position id="VDBFKBSC317013" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien von öffentl Haushalten im Euroraum</text>
+</position>
+<position id="VDBFKBSC317010" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien von sonstigen Ansässige im Euro-Währungsgebiet</text>
+</position>
+<position id="VDBFKBSC507001" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an im Euroraum ansässige MFIs</text>
+</position>
+<position id="VDBFKBSC507013" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an öffentliche Haushalte</text>
+</position>
+<position id="VDBFKBSC203000" >
+<text lang="DE">Aktiva gegenüber Ansässige außerhalb des Euroraums</text>
+</position>
+<position id="VDBFKBSC507000" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an Ansässige im Euroraum - Insgesamt</text>
+</position>
+<position id="VDBFKBSC830000" >
+<text lang="DE">Passiva - Ausgegebene Banknoten gemäß EZB-Beschluss (ECB/2001/15)</text>
+</position>
+<position id="VDBFKBSC917001" >
+<text lang="DE">Passiva - Einlagen von im Euroraum ansässigen MFIs</text>
+</position>
+<position id="VDBFKBSC917014" >
+<text lang="DE">Passiva - Einlagen von Zentralregierungen</text>
+</position>
+<position id="VDBFKBSC917009" >
+<text lang="DE">Passiva - Einlagen von sonstigen öffentlichen Haushalten und sonstigen Ansässigen im Euroraum</text>
+</position>
+<position id="VDBFKBSX917000" >
+<text lang="DE">Passiva -  Einlagen von Ansässigen im Euroraum ingesamt</text>
+</position>
+<position id="VDBFKBSC127000" >
+<text lang="DE">Passiva - Geldmarktpapiere</text>
+</position>
+<position id="VDBFKBSC117000" >
+<text lang="DE">Passiva - Begebene Schuldverschreibungen</text>
+</position>
+<position id="VDBFKBSC403000" >
+<text lang="DE">Passiva gegenüber Ansässigen außerhalb des Euroraums</text>
+</position>
+</group>
+<group name="Aktiva">
+<position id="VDBFKBSC217000" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - Ingesamt</text>
+</position>
+<position id="VDBFKBSC217001" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - MFI</text>
+</position>
+<position id="VDBFKBSC217013" >
+<text lang="DE">Aktiva - Kredite an Ansässige im Euroraum - Öffentliche Haushalte</text>
+</position>
+<position id="VDBFKBSC217010" >
+<text lang="DE">Aktiva - Kredite an sonstige Ansässige im Euroraum</text>
+</position>
+<position id="VDBFKBSC317000" >
+<text lang="DE">Aktiva - Wertpapiere o Aktien v Ansässigen Euro-Währungsgebiet -  insges.</text>
+</position>
+<position id="VDBFKBSC317001" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien v ansässigen MFIs Euro-Währungsgebiet</text>
+</position>
+<position id="VDBFKBSC317013" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien von öffentl Haushalten im Euroraum</text>
+</position>
+<position id="VDBFKBSC317010" >
+<text lang="DE">Aktiva - Wertpapiere ohne Aktien von sonstigen Ansässige im Euro-Währungsgebiet</text>
+</position>
+<position id="VDBFKBSC507001" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an im Euroraum ansässige MFIs</text>
+</position>
+<position id="VDBFKBSC507013" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an öffentliche Haushalte</text>
+</position>
+<position id="VDBFKBSC203000" >
+<text lang="DE">Aktiva gegenüber Ansässige außerhalb des Euroraums</text>
+</position>
+<position id="VDBFKBSC507000" >
+<text lang="DE">Aktiva - Aktien und sonstige Dividendenwerte von Beteiligungen an Ansässige im Euroraum - Insgesamt</text>
+</position>
+</group>
+<group name="Passiva">
+<position id="VDBFKBSC830000" >
+<text lang="DE">Passiva - Ausgegebene Banknoten gemäß EZB-Beschluss (ECB/2001/15)</text>
+</position>
+<position id="VDBFKBSC917001" >
+<text lang="DE">Passiva - Einlagen von im Euroraum ansässigen MFIs</text>
+</position>
+<position id="VDBFKBSC917014" >
+<text lang="DE">Passiva - Einlagen von Zentralregierungen</text>
+</position>
+<position id="VDBFKBSC917009" >
+<text lang="DE">Passiva - Einlagen von sonstigen öffentlichen Haushalten und sonstigen Ansässigen im Euroraum</text>
+</position>
+<position id="VDBFKBSX917000" >
+<text lang="DE">Passiva -  Einlagen von Ansässigen im Euroraum ingesamt</text>
+</position>
+<position id="VDBFKBSC127000" >
+<text lang="DE">Passiva - Geldmarktpapiere</text>
+</position>
+<position id="VDBFKBSC117000" >
+<text lang="DE">Passiva - Begebene Schuldverschreibungen</text>
+</position>
+<position id="VDBFKBSC403000" >
+<text lang="DE">Passiva gegenüber Ansässigen außerhalb des Euroraums</text>
+</position>
+</group>
+</groups>
+</content>
