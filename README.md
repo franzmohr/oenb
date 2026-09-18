@@ -3,7 +3,18 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
-[![R-CMD-check](https://github.com/franzmohr/oenb/workflows/R-CMD-check/badge.svg)](https://github.com/franzmohr/oenb/actions)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/oenb)](https://cran.r-project.org/package=oenb)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/oenb)](https://cran.r-project.org/package=oenb)
+[![R-CMD-check](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml)
+[![License: GPL (\>=
+2)](https://img.shields.io/badge/license-GPL%20%28%3E%3D%202%29-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+
+[![GitHub
+Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/franzmohr)
+[![Buy Me a
+Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/franzmohr)
 
 The `oenb` R package provides tools to access statistical data via the
 [web service of the Austrian central
@@ -39,12 +50,12 @@ description.
 toc <- oenb_toc()
 head(toc)
 #>   dataset_id                                              description
-#> 1          1                 OeNB, Eurosystem and Monetary Indicators
-#> 2         11 Balance Sheet Items of the Oesterreichische Nationalbank
-#> 3         13      Monetary Aggregates, Consolidated MFI Balance Sheet
-#> 4         14                               Loans and deposits of MFIs
-#> 5  100140001                                     Development of loans
-#> 6  100140002                               Loans and deposits of MFIs
+#> 1          1                 OeNB, Eurosystem and monetary indicators
+#> 2         11 Balance sheet items of the Oesterreichische Nationalbank
+#> 3         18    International reserves and foreign currency liquidity
+#> 4         13      Monetary aggregates, consolidated MFI balance sheet
+#> 5         14                               Loans and deposits of MFIs
+#> 6  100140001                                     Development of loans
 ```
 
 ### Dataset overview
@@ -102,8 +113,8 @@ given series and the periods, for which data are available.
 freq <- oenb_frequency(id = "11", pos = "VDBFKBSC217000")
 freq
 #>   frequency    available_period
-#> 1         A         1998 - 2020
-#> 2         M Jan.  98 - Sep.  21
+#> 1         A         1998 - 2025
+#> 2         M Jan.  98 - Aug.  26
 ```
 
 ### Data download
@@ -141,7 +152,7 @@ meta
 #> 5                                                                          European Sytem of National Accounts
 #> 6                                                                                                            -
 #> 7                                                                                                        month
-#> 8                                                                                          2021-10-14 12:51:36
+#> 8                                                                                          2026-09-14 07:01:37
 #> 9                                                                                                         OeNB
 #> 10                                                                                                           -
 ```

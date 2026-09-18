@@ -7,6 +7,7 @@
 #' @inheritParams oenb_dataset
 #'
 #' @return A data frame containing potential attributes of a series.
+#' \code{NULL} is returned if the web service is not available.
 #'
 #' @examples
 #' \donttest{
@@ -16,22 +17,34 @@
 #'
 #' @export
 oenb_attributes <- function(id, pos, lang = "EN") {
-  if (!lang %in% c("DE", "EN")) {"Specified language is not supported."}
+  oenb_check_lang(lang)
 
   url <- paste("https://www.oenb.at/isadataservice/content?lang=", lang, sep = "")
-  url <- paste(url, "&hierid=", id, sep = "")
-  url <- paste(url, "&pos=", pos, sep = "")
-  xml <- XML::xmlParse(readLines(url))
+  url <- paste(url, "&hierid=", oenb_encode(id), sep = "")
+  url <- paste(url, "&pos=", oenb_encode(pos), sep = "")
+  xml <- oenb_fetch(url)
+  if (is.null(xml)) {
+    return(NULL)
+  }
+
+  cols <- c("attribute_code", "attribute", "value_code", "value")
 
   nr_structure <- XML::xpathSApply(xml, "//structure/dimension", XML::xmlGetAttr, "nr")
+  avail_nr <- XML::xpathSApply(xml, "//data/dimension", XML::xmlGetAttr, "nr")
+  avail_code <- XML::xpathSApply(xml, "//auspraegung", XML::xmlGetAttr, "code")
+  if (length(nr_structure) == 0 || length(avail_nr) == 0 ||
+      length(avail_code) != length(avail_nr)) {
+    message("No attributes were found for position \"", pos,
+            "\" in data set \"", id, "\".")
+    return(oenb_empty(cols))
+  }
+
   dims_structure <- XML::getNodeSet(xml, "//structure", fun = XML::xmlToDataFrame,
                                stringsAsFactors = FALSE)[[1]][, 1]
   structure <- data.frame("nr" = nr_structure,
                           "attribute" = dims_structure,
                           stringsAsFactors = FALSE)
 
-  avail_nr <- XML::xpathSApply(xml, "//data/dimension", XML::xmlGetAttr, "nr")
-  avail_code <- XML::xpathSApply(xml, "//auspraegung", XML::xmlGetAttr, "code")
   avail_meta <- XML::getNodeSet(xml, "//auspraegung", fun = XML::xmlToDataFrame,
                                 stringsAsFactors = FALSE)
 
@@ -45,8 +58,7 @@ oenb_attributes <- function(id, pos, lang = "EN") {
   result <- dplyr::select(result, "nr", "attribute", "code", "text")
   result <- as.data.frame(result)
   result$nr <- paste("dval", result$nr, sep = "")
-  names(result) <- c("attribute_code", "attribute",
-                     "value_code", "value")
+  names(result) <- cols
 
   return(result)
 }

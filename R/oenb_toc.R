@@ -6,6 +6,7 @@
 #' German and "EN" for English (default).
 #'
 #' @return A data frame containing the IDs and titles of available datasets.
+#' \code{NULL} is returned if the web service is not available.
 #'
 #' @examples
 #' \donttest{
@@ -15,11 +16,21 @@
 #'
 #' @export
 oenb_toc <- function(lang = "EN") {
-  if (!lang %in% c("DE", "EN")) {"Specified language is not supported."}
+  oenb_check_lang(lang)
+
   url <- paste("https://www.oenb.at/isadataservice/content?lang=", lang, sep = "")
-  xml <- XML::xmlParse(readLines(url))
+  xml <- oenb_fetch(url)
+  if (is.null(xml)) {
+    return(NULL)
+  }
+
   out <- XML::getNodeSet(xml, "//element", fun = XML::xmlToDataFrame, stringsAsFactors = FALSE)
   code <- XML::xpathSApply(xml, "//element", XML::xmlGetAttr, "id")
+  if (length(out) == 0 || length(code) != length(out)) {
+    message("The data web service of the OeNB did not return any data sets.")
+    return(oenb_empty(c("dataset_id", "description")))
+  }
+
   result <- data.frame(code, do.call(rbind, out), stringsAsFactors = FALSE)
   names(result) <- c("dataset_id", "description")
   return(result)

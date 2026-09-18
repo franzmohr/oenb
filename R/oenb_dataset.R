@@ -7,6 +7,7 @@
 #' @inheritParams oenb_toc
 #'
 #' @return A data frame containing the IDs and names of available indicators within a dataset.
+#' \code{NULL} is returned if the web service is not available.
 #'
 #' @examples
 #' \donttest{
@@ -16,10 +17,14 @@
 #'
 #' @export
 oenb_dataset <- function(id, lang = "EN") {
-  if (!lang %in% c("DE", "EN")) {"Specified language is not supported."}
+  oenb_check_lang(lang)
+
   url <- paste("https://www.oenb.at/isadataservice/content?lang=", lang, sep = "")
-  url <- paste(url, "&hierid=", id, sep = "")
-  xml <- XML::xmlParse(readLines(url))
+  url <- paste(url, "&hierid=", oenb_encode(id), sep = "")
+  xml <- oenb_fetch(url)
+  if (is.null(xml)) {
+    return(NULL)
+  }
 
   filter <- "//group[@name="
   if (lang == "EN") {
@@ -34,8 +39,13 @@ oenb_dataset <- function(id, lang = "EN") {
   series <- XML::getNodeSet(xml, filter, fun = XML::xmlToDataFrame,
                             stringsAsFactors = FALSE)
   code <- XML::xpathSApply(xml, filter, XML::xmlGetAttr, "id")
+  if (length(series) == 0 || length(code) != length(series)) {
+    message("No indicators were found for data set \"", id, "\". ",
+            "See oenb_toc() for available data set IDs.")
+    return(oenb_empty(c("position_code", "description")))
+  }
 
-  result <- data.frame(code, do.call(rbind, series))
+  result <- data.frame(code, do.call(rbind, series), stringsAsFactors = FALSE)
   names(result) <- c("position_code", "description")
   return(result)
 }

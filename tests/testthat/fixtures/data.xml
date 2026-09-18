@@ -1,0 +1,10 @@
+<OeNBData>
+  <data>
+    <dataSet pos="VDBFKBSC217000" posTitle="Loans to euro area residents - total" attr1="AT" attr2="00100KI" attr3="AT" attr4="Z0Z" attr1Dim="PRODUZENT" attr2Dim="BANKENSEKTOR" attr3Dim="REGION" attr4Dim="WAEHRUNG" freq="M" unitMult="6" unitText="in millions Euro">
+      <values>
+        <obs value="20494.00000" periode="2019-11"/>
+        <obs value="19254.00000" periode="2019-12"/>
+      </values>
+    </dataSet>
+  </data>
+</OeNBData>

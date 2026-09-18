@@ -15,6 +15,7 @@ German and "EN" for English (default).}
 }
 \value{
 A data frame containing the IDs and names of available indicators within a dataset.
+\code{NULL} is returned if the web service is not available.
 }
 \description{
 Downloads a description of the contents of a specific dataset from the OeNB's data web service.

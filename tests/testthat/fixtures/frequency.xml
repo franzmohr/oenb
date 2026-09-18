@@ -1,0 +1,14 @@
+<OeNBData>
+  <data>
+    <dataSet POS_CODE="VDBFKBSC217000" DVAL1_CODE="AT" DVAL2_CODE="00100KI" DVAL3_CODE="AT" DVAL4_CODE="Z0Z">
+      <values>
+        <periods frequency="A">
+          <available>1998 - 2025</available>
+        </periods>
+        <periods frequency="M">
+          <available>Jan.  98 - Aug.  26</available>
+        </periods>
+      </values>
+    </dataSet>
+  </data>
+</OeNBData>

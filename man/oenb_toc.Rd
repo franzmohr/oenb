@@ -12,6 +12,7 @@ German and "EN" for English (default).}
 }
 \value{
 A data frame containing the IDs and titles of available datasets.
+\code{NULL} is returned if the web service is not available.
 }
 \description{
 Downloads the table of contents of the OeNB's statistical data web service.

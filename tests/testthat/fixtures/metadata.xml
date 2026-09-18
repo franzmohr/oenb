@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metainfo>
+<header>
+<prepared>2026-09-18T17:58:08Z</prepared>
+<test>false</test>
+<sender id="AT2">
+<name>Oesterreichische Nationalbank</name>
+</sender>
+<last_update>2026-09-18T17:58:08Z</last_update>
+</header>
+<meta>
+<title>Loans to euro area residents - total</title>
+<region>-</region>
+<unit>Euro</unit>
+<comment>Collected within the framework of the balance sheet report to the ECB  loans to euro area residents  total.</comment>
+<classification>European Sytem of National Accounts</classification>
+<breaks>-</breaks>
+<frequency>month</frequency>
+<data_available>
+<data>Jan.  98 - Aug.  26</data>
+<data>1998 - 2025</data>
+</data_available>
+<last_update>2026-09-14 07:01:37</last_update>
+<source>OeNB</source>
+<lag>-</lag>
+<releases>
+<release><release_date> Week 38/2026</release_date> <reference>August 2026</reference> <revision></revision></release>
+<release><release_date> Week 42/2026</release_date> <reference>September 2026</reference> <revision></revision></release>
+<release><release_date> Week 46/2026</release_date> <reference>October 2026</reference> <revision></revision></release>
+<release><release_date> Week 51/2026</release_date> <reference>November 2026</reference> <revision></revision></release>
+</releases>
+</meta>
+</metainfo>

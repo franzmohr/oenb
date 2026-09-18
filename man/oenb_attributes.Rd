@@ -18,6 +18,7 @@ German and "EN" for English (default).}
 }
 \value{
 A data frame containing potential attributes of a series.
+\code{NULL} is returned if the web service is not available.
 }
 \description{
 Get potential attributes of individual series from the OeNB's data web service.

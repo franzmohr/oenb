@@ -18,6 +18,7 @@ German and "EN" for English (default).}
 }
 \value{
 A data frame containing metadata on an indicator.
+\code{NULL} is returned if the web service is not available.
 }
 \description{
 Get metadata on individual series from the OeNB's data web service.

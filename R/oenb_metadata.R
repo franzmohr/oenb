@@ -7,6 +7,7 @@
 #' @inheritParams oenb_dataset
 #'
 #' @return A data frame containing metadata on an indicator.
+#' \code{NULL} is returned if the web service is not available.
 #'
 #' @examples
 #' \donttest{
@@ -16,17 +17,35 @@
 #'
 #' @export
 oenb_metadata <- function(id, pos, lang = "EN") {
-  if (!lang %in% c("DE", "EN")) {"Specified language is not supported."}
-  url <- paste("https://www.oenb.at/isadataservice/meta?lang=", lang, sep = "")
-  url <- paste(url, "&hierid=", id, sep = "")
-  url <- paste(url, "&pos=", pos, sep = "")
-  xml <- XML::xmlParse(readLines(url))
+  oenb_check_lang(lang)
 
-  meta <- XML::getNodeSet(xml, "//meta", fun = XML::xmlToList)[[1]]
-  pos <- which(unlist(lapply(meta, function(x) {length(x) == 1})))
+  url <- paste("https://www.oenb.at/isadataservice/meta?lang=", lang, sep = "")
+  url <- paste(url, "&hierid=", oenb_encode(id), sep = "")
+  url <- paste(url, "&pos=", oenb_encode(pos), sep = "")
+  xml <- oenb_fetch(url)
+  if (is.null(xml)) {
+    return(NULL)
+  }
+
+  cols <- c("attribute", "description")
+
+  meta <- XML::getNodeSet(xml, "//meta", fun = XML::xmlToList)
+  if (length(meta) == 0) {
+    message("No metadata were found for position \"", pos,
+            "\" in data set \"", id, "\".")
+    return(oenb_empty(cols))
+  }
+  meta <- meta[[1]]
+
+  entries <- which(unlist(lapply(meta, function(x) {length(x) == 1})))
+  if (length(entries) == 0) {
+    message("No metadata were found for position \"", pos,
+            "\" in data set \"", id, "\".")
+    return(oenb_empty(cols))
+  }
 
   result <- NULL
-  for (i in pos) {
+  for (i in entries) {
     temp <- data.frame("attribute" = names(meta)[i],
                        "description" = meta[[i]], stringsAsFactors = FALSE)
     result <- rbind(result, temp)

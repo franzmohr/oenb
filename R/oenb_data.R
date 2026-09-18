@@ -22,7 +22,8 @@
 #' and `YYYY-12` refer to the first, second, third and forth quarter of year `YYYY`,
 #' respectively.
 #'
-#' @return A data frame.
+#' @return A data frame. \code{NULL} is returned if the query does not return any
+#' data or if the web service is not available.
 #'
 #' @examples
 #' \donttest{
@@ -33,49 +34,57 @@
 #'
 #' @export
 oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endtime = NULL, lang = "EN") {
-  if (!lang %in% c("DE", "EN")) {"Specified language is not supported."}
+  oenb_check_lang(lang)
+
   url <- "https://www.oenb.at/isadataservice/data"
   url <- paste(url, "?lang=", lang, sep = "")
-  url <- paste(url, "&hierid=", id, sep = "")
+  url <- paste(url, "&hierid=", oenb_encode(id), sep = "")
 
-  pos <- paste("pos=", pos, sep = "", collapse = "&")
+  pos <- paste("pos=", oenb_encode(pos), sep = "", collapse = "&")
   url <- paste(url, "&", pos, sep = "")
 
   if (!is.null(freq)) {
-    freq <- paste("freq=", freq, sep = "", collapse = "&")
+    freq <- paste("freq=", oenb_encode(freq), sep = "", collapse = "&")
     url <- paste(url, "&", freq, sep = "")
   }
   if (!is.null(attr)) {
-    attr <- paste(names(attr), "=", attr, sep = "", collapse = "&")
+    attr <- paste(oenb_encode(names(attr)), "=", oenb_encode(attr), sep = "", collapse = "&")
     url <- paste(url, "&", attr, sep = "")
   }
   if (!is.null(starttime)) {
-    url <- paste(url, "&starttime=", starttime, sep = "")
+    url <- paste(url, "&starttime=", oenb_encode(starttime), sep = "")
   }
   if (!is.null(endtime)) {
-    url <- paste(url, "&endtime=", endtime, sep = "")
+    url <- paste(url, "&endtime=", oenb_encode(endtime), sep = "")
   }
 
-  xml <- XML::xmlParse(readLines(url))
+  xml <- oenb_fetch(url)
+  if (is.null(xml)) {
+    return(NULL)
+  }
 
   series <- XML::getNodeSet(xml, "//dataSet", fun = XML::xmlToList)
-
-  result <- NULL
-  if (length(series) > 0) {
-    for (i in 1:length(series)) {
-      val_temp <- do.call(rbind, series[[i]]$values)
-      period_temp <- val_temp[, "periode"]
-      val_temp <- as.numeric(val_temp[, "value"])
-      attr_temp <- as.data.frame(t(series[[i]]$.attrs), stringsAsFactors = FALSE)
-      temp <- cbind("period" = period_temp,
-                    attr_temp,
-                    "value" = val_temp,
-                    stringsAsFactors = FALSE)
-      result <- rbind(result, temp)
-    }
-    names(result) <- tolower(names(result))
+  if (length(series) == 0) {
+    message("The query did not return any data. See oenb_frequency() and ",
+            "oenb_attributes() for available periods and attributes of a series.")
+    return(NULL)
   }
 
+  result <- NULL
+  for (i in seq_along(series)) {
+    val_temp <- do.call(rbind, series[[i]]$values)
+    period_temp <- val_temp[, "periode"]
+    val_temp <- as.numeric(val_temp[, "value"])
+    attr_temp <- as.data.frame(t(series[[i]]$.attrs), stringsAsFactors = FALSE)
+    temp <- cbind("period" = period_temp,
+                  attr_temp,
+                  "value" = val_temp,
+                  stringsAsFactors = FALSE)
+    result <- rbind(result, temp)
+  }
+  names(result) <- tolower(names(result))
+
+  temp_pos <- integer(0)
   if (length(which(grepl("dval", names(result), fixed = TRUE))) != 0) {
     temp_pos <- which(grepl("dval", names(result), fixed = TRUE))
   }
@@ -83,12 +92,16 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
   if (length(which(grepl("attr", names(result), fixed = TRUE))) != 0) {
     temp_pos <- which(grepl("attr", names(result), fixed = TRUE))
   }
-  temp_frst <- 1:(temp_pos[1] - 1)
-  temp_scnd <- (temp_pos[length(temp_pos)] + 1):length(names(result))
-  temp_names <- names(result)[temp_pos]
-  temp_pos <- temp_pos[order(temp_names)]
-  temp_pos <- c(temp_frst, temp_pos, temp_scnd)
-  result <- result[, temp_pos]
+
+  if (length(temp_pos) > 0) {
+    temp_frst <- seq_len(temp_pos[1] - 1)
+    temp_scnd <- seq_len(length(names(result)))
+    temp_scnd <- temp_scnd[temp_scnd > temp_pos[length(temp_pos)]]
+    temp_names <- names(result)[temp_pos]
+    temp_pos <- temp_pos[order(temp_names)]
+    temp_pos <- c(temp_frst, temp_pos, temp_scnd)
+    result <- result[, temp_pos]
+  }
 
   return(result)
 }

@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  github_document:
+    html_preview: false
 ---
 
 ```{r, include = FALSE}
@@ -14,7 +16,13 @@ knitr::opts_chunk$set(
 # oenb
 
 [![CRAN status](https://www.r-pkg.org/badges/version/oenb)](https://cran.r-project.org/package=oenb)
-[![R-CMD-check](https://github.com/franzmohr/oenb/workflows/R-CMD-check/badge.svg)](https://github.com/franzmohr/oenb/actions)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/oenb)](https://cran.r-project.org/package=oenb)
+[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/oenb)](https://cran.r-project.org/package=oenb)
+[![R-CMD-check](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml)
+[![License: GPL (>= 2)](https://img.shields.io/badge/license-GPL%20%28%3E%3D%202%29-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/franzmohr)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/franzmohr)
 
 The `oenb` R package provides tools to access statistical data via the [web service of the Austrian central bank](https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html) (Oesterreichische Nationalbank, OeNB).
 

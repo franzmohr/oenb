@@ -37,7 +37,8 @@ See \code{\link{oenb_attributes}} to obtain possible choices.}
 German and "EN" for English (default).}
 }
 \value{
-A data frame.
+A data frame. \code{NULL} is returned if the query does not return any
+data or if the web service is not available.
 }
 \description{
 Download data sets from the OeNB's data web service \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.

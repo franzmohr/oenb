@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+<header>
+<prepared>2026-09-18T17:58:08Z</prepared>
+<test>false</test>
+<sender id="AT2">
+<name>Oesterreichische Nationalbank</name>
+</sender>
+<last_update>2026-09-18T17:58:08Z</last_update>
+</header>
+<groups>
+<group name="all data">
+</group>
+</groups>
+</content>
