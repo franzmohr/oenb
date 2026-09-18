@@ -1,0 +1,23 @@
+{
+    "title": "oenb: Tools for the OeNB Data Web Service",
+    "description": "An R package with tools to access data from the data web service of the Oesterreichische Nationalbank (OeNB), the central bank of Austria.",
+    "upload_type": "software",
+    "access_right": "open",
+    "license": "GPL-2.0-or-later",
+    "creators": [
+        {
+            "name": "Mohr, Franz X.",
+            "orcid": "0009-0003-8890-7781"
+        }
+    ],
+    "keywords": [
+        "R",
+        "Oesterreichische Nationalbank",
+        "OeNB",
+        "Austria",
+        "central bank",
+        "economic statistics",
+        "open data",
+        "web service"
+    ]
+}

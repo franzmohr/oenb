@@ -1,6 +1,7 @@
 Package: oenb
 Title: Tools for the OeNB Data Web Service
 Version: 0.1.0
+Date: 2026-09-18
 Authors@R: person("Franz X.", "Mohr", email = "franz.x.mohr@outlook.com", role = c("aut","cre"), comment = c(ORCID = "0009-0003-8890-7781"))
 Description: Tools to access data from the data web service of the Oesterreichische Nationalbank (OeNB), <https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html>.
 License: GPL (>= 2)

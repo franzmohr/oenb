@@ -5,3 +5,4 @@
 dev_oenb.R
 ^cran-comments\.md$
 ^\.github$
+^\.zenodo\.json$

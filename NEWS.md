@@ -39,6 +39,8 @@ package can be tested without an internet connection.
 
 * The minimum required R version is now 4.1.0, which is the version required by
 the imported package `dplyr`.
+* Added a citation file, so that `citation("oenb")` returns a reference for the
+package instead of one generated from the description.
 
 # oenb 0.0.2
 
