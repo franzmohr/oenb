@@ -9,7 +9,8 @@ bibentry(bibtype = "Manual",
          year = year,
          note = note,
          url = "https://CRAN.R-project.org/package=oenb",
+         doi = "10.5281/zenodo.22836413",
          textVersion = paste0("Franz X. Mohr (",
                 year,
                 "). oenb: Tools for the OeNB Data Web Service. ",
-                note, "."))
+                note, ". doi:10.5281/zenodo.22836413"))

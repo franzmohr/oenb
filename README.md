@@ -10,6 +10,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/oenb)](https://cran.r-p
 [![R-CMD-check](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/franzmohr/oenb/actions/workflows/R-CMD-check.yaml)
 [![License: GPL (\>=
 2)](https://img.shields.io/badge/license-GPL%20%28%3E%3D%202%29-blue.svg)](https://www.gnu.org/licenses/gpl-2.0)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22836413.svg)](https://doi.org/10.5281/zenodo.22836413)
 
 [![GitHub
 Sponsors](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?logo=github-sponsors&logoColor=white)](https://github.com/sponsors/franzmohr)
