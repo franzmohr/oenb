@@ -37,19 +37,23 @@ oenb_metadata <- function(id, pos, lang = "EN") {
   }
   meta <- meta[[1]]
 
-  entries <- which(unlist(lapply(meta, function(x) {length(x) == 1})))
+  # Only the single-valued fields of the block describe the indicator. Nested
+  # elements such as 'data_available' or 'releases' are skipped, whether they
+  # contain one entry or several: a nested element of length one would
+  # otherwise pass for a field of its own and contribute the name of its child
+  # instead of the name of the column.
+  entries <- which(vapply(meta, function(x) {is.atomic(x) && length(x) == 1},
+                          logical(1)))
   if (length(entries) == 0) {
     message("No metadata were found for position \"", pos,
             "\" in data set \"", id, "\".")
     return(oenb_empty(cols))
   }
 
-  result <- NULL
-  for (i in entries) {
-    temp <- data.frame("attribute" = names(meta)[i],
-                       "description" = meta[[i]], stringsAsFactors = FALSE)
-    result <- rbind(result, temp)
-  }
+  result <- data.frame("attribute" = names(meta)[entries],
+                       "description" = as.character(unlist(meta[entries],
+                                                           use.names = FALSE)),
+                       stringsAsFactors = FALSE)
 
   return(result)
 }

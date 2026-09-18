@@ -8,6 +8,11 @@ error for anything other than `"DE"` and `"EN"`.
 * `oenb_data` failed with `object 'temp_pos' not found` whenever a query did not
 return any data, for example for a valid series outside its available period.
 It now returns `NULL` with an informative message.
+* `oenb_metadata` failed with `names do not match previous names` for every
+indicator whose metadata contain a nested element that holds a single entry,
+such as a `data_available` block that describes one period. In a sample of the
+available series roughly four out of ten were affected. Nested elements are now
+skipped consistently, whether they hold one entry or several.
 * Arguments are percent-encoded before they are inserted into a query, so that
 values containing reserved characters no longer produce a malformed URL.
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metainfo>
+<header>
+<prepared>2026-09-18T18:46:35Z</prepared>
+<test>false</test>
+<sender id="AT2">
+<name>Oesterreichische Nationalbank</name>
+</sender>
+<last_update>2026-09-18T18:46:35Z</last_update>
+</header>
+<meta>
+<title>Other Foreign Currency Assets</title>
+<region>Austria</region>
+<unit>Euro</unit>
+<comment>This indicator shows OeNB claims that are not included in official reserve assets as well as the claims and liabilities of the central government at the end of the reporting period. In particular, these claims comprise OeNB claims denominated in currencies other than euro against debtors headquartered in the euro area (e.g. securities, deposits and financial derivatives). Claims and liabilities of the central government consist of financial derivatives denominated in currencies other than euro and are vis-à-vis counterparties resident outside Austria (both within and outside the euro area). Valuation is at market prices. A positive sign (+) indicates claims, a negative sign (¿) indicates liabilities.</comment>
+<classification>-</classification>
+<breaks>-</breaks>
+<frequency>month</frequency>
+<data_available>
+<data>Dec.  99 - Aug.  26</data>
+</data_available>
+<last_update>2026-09-07 13:29:07</last_update>
+<source>OeNB, Austrian Federal Financing Agency</source>
+<lag>20 day(s)</lag>
+<releases>
+<release><release_date> 21.09.2026</release_date> <reference>August 2026</reference> <revision></revision></release>
+<release><release_date> 07.10.2026</release_date> <reference>September 2026</reference> <revision></revision></release>
+<release><release_date> 21.10.2026</release_date> <reference>September 2026</reference> <revision></revision></release>
+<release><release_date> 06.11.2026</release_date> <reference>October 2026</reference> <revision></revision></release>
+<release><release_date> 23.11.2026</release_date> <reference>October 2026</reference> <revision></revision></release>
+<release><release_date> 07.12.2026</release_date> <reference>November 2026</reference> <revision></revision></release>
+<release><release_date> 21.12.2026</release_date> <reference>November 2026</reference> <revision></revision></release>
+<release><release_date> 07.01.2027</release_date> <reference>December 2026</reference> <revision></revision></release>
+<release><release_date> 21.01.2027</release_date> <reference>December 2026</reference> <revision></revision></release>
+<release><release_date> 05.02.2027</release_date> <reference>January 2027</reference> <revision></revision></release>
+<release><release_date> 22.02.2027</release_date> <reference>January 2027</reference> <revision></revision></release>
+<release><release_date> 05.03.2027</release_date> <reference>February 2027</reference> <revision></revision></release>
+<release><release_date> 22.03.2027</release_date> <reference>February 2027</reference> <revision></revision></release>
+<release><release_date> 07.04.2027</release_date> <reference>March 2027</reference> <revision></revision></release>
+<release><release_date> 21.04.2027</release_date> <reference>March 2027</reference> <revision></revision></release>
+<release><release_date> 07.05.2027</release_date> <reference>April 2027</reference> <revision></revision></release>
+<release><release_date> 21.05.2027</release_date> <reference>April 2027</reference> <revision></revision></release>
+<release><release_date> 07.06.2027</release_date> <reference>May 2027</reference> <revision></revision></release>
+<release><release_date> 21.06.2027</release_date> <reference>May 2027</reference> <revision></revision></release>
+<release><release_date> 07.07.2027</release_date> <reference>June 2027</reference> <revision></revision></release>
+<release><release_date> 21.07.2027</release_date> <reference>June 2027</reference> <revision></revision></release>
+</releases>
+</meta>
+</metainfo>
