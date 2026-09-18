@@ -19,6 +19,13 @@ indicator with ten or more attributes `attr10` was placed between `attr1` and
 under each column name was always correct, so code that selects columns by name
 was not affected; only code that relies on their position was. The columns are
 now arranged by number.
+* `oenb_frequency` repeated every frequency of a series once per combination of
+its attributes, because that is how the web service reports them. For some
+indicators this returned tens of thousands of identical rows, in one case 28512
+rows that describe three frequencies. Each distinct combination of frequency and
+period is now reported once, in the same way as `oenb_attributes` already
+reduced the repetition of the service. Indicators whose frequencies were already
+reported once are unaffected.
 * Arguments are percent-encoded before they are inserted into a query, so that
 values containing reserved characters no longer produce a malformed URL.
 

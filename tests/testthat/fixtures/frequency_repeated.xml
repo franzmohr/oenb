@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<OeNBData>
+  <data>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U6" DVAL4_CODE="Z01" DVAL5_CODE="MS2252" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="M">
+          <available>Oct.  02 - July  26</available>
+        </periods>
+        <periods frequency="A">
+          <available>2002 - 2025</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U5" DVAL4_CODE="Z01" DVAL5_CODE="MS2252" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="A">
+          <available>2002 - 2025</available>
+        </periods>
+        <periods frequency="M">
+          <available>Oct.  02 - July  26</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U5" DVAL4_CODE="Z06" DVAL5_CODE="MS2252" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="A">
+          <available>2016 - 2025</available>
+        </periods>
+        <periods frequency="M">
+          <available>Oct.  16 - July  26</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U5" DVAL4_CODE="EUR" DVAL5_CODE="MS2110" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="A">
+          <available>2016 - 2025</available>
+        </periods>
+        <periods frequency="M">
+          <available>Oct.  16 - July  26</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U6" DVAL4_CODE="Z06" DVAL5_CODE="MS2210" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="M">
+          <available>Dec.  98 - July  26</available>
+        </periods>
+        <periods frequency="A">
+          <available>1998 - 2025</available>
+        </periods>
+      </values>
+    </dataSet>
+    <dataSet POS_CODE="VDBMSKREDITE" DVAL1_CODE="AT" DVAL2_CODE="BS00100SK" DVAL3_CODE="U5" DVAL4_CODE="Z06" DVAL5_CODE="MS2220" DVAL6_CODE="A" DVAL7_CODE="1">
+      <values>
+        <periods frequency="A">
+          <available>2016 - 2025</available>
+        </periods>
+        <periods frequency="M">
+          <available>Dec.  18 - July  26</available>
+        </periods>
+      </values>
+    </dataSet>
+  </data>
+</OeNBData>

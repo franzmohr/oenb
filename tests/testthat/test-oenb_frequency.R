@@ -10,6 +10,23 @@ test_that("oenb_frequency parses a recorded response", {
   expect_true(all(result$frequency %in% c("D", "M", "Q", "H", "A")))
 })
 
+test_that("oenb_frequency reports every frequency of a series only once", {
+  # The service repeats the frequency of a series once per combination of its
+  # attributes, which produced thousands of identical rows for some series.
+  # Removing the repetition must not remove genuinely different rows.
+  local_fixture("frequency_repeated.xml")
+  result <- oenb_frequency(id = "100140002", pos = "VDBMSKREDITE")
+
+  expect_identical(anyDuplicated(result), 0L)
+  expect_identical(nrow(result), nrow(unique(result)))
+
+  # the recorded response holds seven different frequency and period pairs
+  expect_identical(nrow(result), 7L)
+  expect_true(all(c("M", "A") %in% result$frequency))
+  expect_identical(names(result), c("frequency", "available_period"))
+  expect_identical(row.names(result), as.character(seq_len(nrow(result))))
+})
+
 test_that("oenb_frequency returns an empty result when no frequency is returned", {
   local_fixture("data_empty.xml")
   expect_message(result <- oenb_frequency(id = "11", pos = "X"),
