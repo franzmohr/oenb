@@ -15,7 +15,8 @@ NULL
 
 # Stop if the requested language is not supported by the web service.
 oenb_check_lang <- function(lang) {
-  if (length(lang) != 1 || is.na(lang) || !lang %in% c("DE", "EN")) {
+  if (!is.character(lang) || length(lang) != 1 || is.na(lang) ||
+      !lang %in% c("DE", "EN")) {
     stop("Specified language is not supported. Possible values are \"DE\" and \"EN\".",
          call. = FALSE)
   }
@@ -24,9 +25,14 @@ oenb_check_lang <- function(lang) {
 
 # Percent-encode values before they are pasted into a query string, so that
 # arguments containing reserved characters do not produce a malformed URL.
+# A missing value would silently become the string "NA" and produce a query
+# that cannot be answered, so it is rejected instead.
 oenb_encode <- function(x) {
-  vapply(as.character(x), utils::URLencode, character(1),
-         reserved = TRUE, USE.NAMES = FALSE)
+  x <- as.character(x)
+  if (anyNA(x)) {
+    stop("Arguments of a query must not contain missing values.", call. = FALSE)
+  }
+  vapply(x, utils::URLencode, character(1), reserved = TRUE, USE.NAMES = FALSE)
 }
 
 # An empty result with the documented columns, so that code which expects a
@@ -59,10 +65,14 @@ oenb_fetch <- function(url) {
     return(NULL)
   }
 
-  errors <- XML::xpathSApply(xml, "//errors", XML::xmlValue)
+  # Only an 'errors' element directly below the root reports a problem with the
+  # query. Anchoring the path keeps a node of that name somewhere inside a
+  # regular response from being mistaken for one. An element without a message
+  # is ignored, so that an empty one cannot raise an error without a reason.
+  errors <- XML::xpathSApply(xml, "/*/errors", XML::xmlValue)
+  errors <- gsub("\\s+", " ", trimws(unlist(errors)))
+  errors <- errors[nzchar(errors)]
   if (length(errors) > 0) {
-    errors <- gsub("\\s+", " ", trimws(unlist(errors)))
-    errors <- errors[nchar(errors) > 0]
     stop("The data web service of the OeNB returned an error: ",
          paste(errors, collapse = " "), call. = FALSE)
   }

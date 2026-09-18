@@ -30,7 +30,6 @@ test_that("oenb_metadata returns an empty result when no metadata are returned",
 
 test_that("oenb_metadata returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_metadata(id = "11", pos = "X"),
-                 "could not be reached")
+  expect_silent(result <- oenb_metadata(id = "11", pos = "X"))
   expect_null(result)
 })

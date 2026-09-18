@@ -20,7 +20,7 @@ test_that("oenb_toc returns an empty result when no data sets are returned", {
 
 test_that("oenb_toc returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_toc(), "could not be reached")
+  expect_silent(result <- oenb_toc())
   expect_null(result)
 })
 

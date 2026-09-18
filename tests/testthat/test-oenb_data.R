@@ -41,8 +41,7 @@ test_that("oenb_data returns NULL instead of failing when there are no data", {
 
 test_that("oenb_data returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_data(id = "11", pos = "VDBFKBSC217000"),
-                 "could not be reached")
+  expect_silent(result <- oenb_data(id = "11", pos = "VDBFKBSC217000"))
   expect_null(result)
 })
 

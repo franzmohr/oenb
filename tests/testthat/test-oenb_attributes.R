@@ -21,8 +21,7 @@ test_that("oenb_attributes returns an empty result when there are no attributes"
 
 test_that("oenb_attributes returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_attributes(id = "11", pos = "X"),
-                 "could not be reached")
+  expect_silent(result <- oenb_attributes(id = "11", pos = "X"))
   expect_null(result)
 })
 

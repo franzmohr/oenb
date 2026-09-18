@@ -20,8 +20,7 @@ test_that("oenb_frequency returns an empty result when no frequency is returned"
 
 test_that("oenb_frequency returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_frequency(id = "11", pos = "X"),
-                 "could not be reached")
+  expect_silent(result <- oenb_frequency(id = "11", pos = "X"))
   expect_null(result)
 })
 

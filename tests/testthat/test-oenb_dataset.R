@@ -19,7 +19,7 @@ test_that("oenb_dataset returns an empty result for an unknown data set", {
 
 test_that("oenb_dataset returns NULL when the web service is unavailable", {
   local_fixture(NULL)
-  expect_message(result <- oenb_dataset(id = "11"), "could not be reached")
+  expect_silent(result <- oenb_dataset(id = "11"))
   expect_null(result)
 })
 

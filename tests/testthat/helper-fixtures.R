@@ -16,11 +16,13 @@ fixture_xml <- function(file) {
 # Make oenb_fetch() return a recorded response for the remainder of a test, so
 # that the parsing code of the exported functions can be tested without network
 # access. Use file = NULL to simulate an unavailable web service.
+#
+# The replacement returns NULL without a message. The message itself belongs to
+# oenb_fetch() and is asserted in test-utils.R; emitting it here as well would
+# only test this helper.
 local_fixture <- function(file, env = parent.frame()) {
   fake <- function(url) {
     if (is.null(file)) {
-      message("The data web service of the OeNB could not be reached. ",
-              "Please check your internet connection and try again later.")
       return(NULL)
     }
     fixture_xml(file)
