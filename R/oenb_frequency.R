@@ -41,10 +41,10 @@ oenb_frequency <- function(id, pos, lang = "EN") {
                        "available_period" = avail,
                        stringsAsFactors = FALSE)
 
-  # The web service reports the frequency of a series once per combination of
-  # its attributes, which repeats the same pair many times over. Only the
-  # distinct pairs describe the series, and oenb_attributes reduces the
-  # repetition of the service in the same way.
+  # This function exists to show which frequencies can be chosen when querying
+  # the series. The service reports a frequency once per combination of the
+  # attributes, so the same choice arrives many times over. Each choice is
+  # listed once, as oenb_attributes lists the values of an attribute once.
   result <- as.data.frame(dplyr::distinct(result))
   row.names(result) <- NULL
 
