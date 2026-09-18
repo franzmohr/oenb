@@ -13,6 +13,12 @@ indicator whose metadata contain a nested element that holds a single entry,
 such as a `data_available` block that describes one period. In a sample of the
 available series roughly four out of ten were affected. Nested elements are now
 skipped consistently, whether they hold one entry or several.
+* `oenb_data` arranged the attribute columns by sorting their names, so for an
+indicator with ten or more attributes `attr10` was placed between `attr1` and
+`attr2` and an attribute was separated from the column describing it. The value
+under each column name was always correct, so code that selects columns by name
+was not affected; only code that relies on their position was. The columns are
+now arranged by number.
 * Arguments are percent-encoded before they are inserted into a query, so that
 values containing reserved characters no longer produce a malformed URL.
 

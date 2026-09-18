@@ -98,7 +98,13 @@ oenb_data <- function(id, pos, freq = NULL, attr = NULL, starttime = NULL, endti
     temp_scnd <- seq_len(length(names(result)))
     temp_scnd <- temp_scnd[temp_scnd > temp_pos[length(temp_pos)]]
     temp_names <- names(result)[temp_pos]
-    temp_pos <- temp_pos[order(temp_names)]
+    # Order the attributes by their number rather than by their name. Sorting
+    # the names would put "attr10" between "attr1" and "attr2" and separate an
+    # attribute from the column that describes it, because "attr10" comes
+    # before "attr2" alphabetically.
+    temp_nr <- suppressWarnings(as.integer(gsub("\\D", "", temp_names)))
+    temp_dim <- as.integer(grepl("dim$", temp_names))
+    temp_pos <- temp_pos[order(temp_nr, temp_dim, temp_names)]
     temp_pos <- c(temp_frst, temp_pos, temp_scnd)
     result <- result[, temp_pos]
   }

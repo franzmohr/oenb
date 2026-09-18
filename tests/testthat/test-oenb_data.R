@@ -30,6 +30,30 @@ test_that("oenb_data keeps period first, value last and the attributes in order"
   expect_identical(anyDuplicated(names(result)), 0L)
 })
 
+test_that("oenb_data orders ten or more attributes by number, not by name", {
+  # regression test: sorting the column names alphabetically put "attr10"
+  # between "attr1" and "attr2", which separated an attribute from the column
+  # describing it. Series with ten attributes exist, so this is reachable.
+  local_fixture("data_many_attributes.xml")
+  result <- oenb_data(id = "902", pos = "VDBDFU55--KSALD--KUP")
+
+  attr_cols <- names(result)[grepl("^attr", names(result))]
+  expect_gte(length(attr_cols) / 2, 10)
+
+  # the numbers have to increase from left to right
+  nrs <- as.integer(gsub("[^0-9]", "", attr_cols))
+  expect_identical(nrs, sort(nrs))
+
+  # every attribute has to be followed directly by the column describing it
+  expect_true(all(vapply(seq(1, length(attr_cols), by = 2), function(i) {
+    identical(attr_cols[i + 1], paste0(attr_cols[i], "dim"))
+  }, logical(1))))
+
+  expect_identical(names(result)[1], "period")
+  expect_identical(names(result)[length(names(result))], "value")
+  expect_identical(anyDuplicated(names(result)), 0L)
+})
+
 test_that("oenb_data returns NULL instead of failing when there are no data", {
   # regression test: this used to fail with "object 'temp_pos' not found"
   local_fixture("data_empty.xml")

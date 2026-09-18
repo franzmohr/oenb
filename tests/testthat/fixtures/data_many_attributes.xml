@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<OeNBData>
+  <data>
+    <dataSet pos="VDBDFU55--KSALD--KUP" posTitle="Equity transactions by IDI excl. SPEs and real estate (UBO) (flows) " attr1="N" attr2="00" attr3="000" attr4="ABN" attr5="000" attr6="00" attr7="0" attr8="0" attr9="0" attr10="0" attr1Dim="Z_AUSPRAEGUNG" attr2Dim="Z_DI_PARTNERLAND" attr3Dim="Z_WAEHRUNG" attr4Dim="Z_BRANCHE" attr5Dim="Z_VGR_SEKTOR" attr6Dim="Z_BUNDESLAND" attr7Dim="Z_NUTS_3_REGIONEN" attr8Dim="Z_ALTER" attr9Dim="Z_BESCHAEFTIGUNGSGROESSENKLASSEN" attr10Dim="Z_AUSLANDSEINFLUSS" freq="A" unitMult="6" unitText="in millions Euro">
+      <values>
+        <obs value="0" periode="2024"/>
+      </values>
+    </dataSet>
+    <dataSet pos="VDBDFU55--KSALD--KUP" posTitle="Equity transactions by IDI excl. SPEs and real estate (UBO) (flows) " attr1="N" attr2="00" attr3="000" attr4="KN" attr5="000" attr6="00" attr7="0" attr8="0" attr9="0" attr10="0" attr1Dim="Z_AUSPRAEGUNG" attr2Dim="Z_DI_PARTNERLAND" attr3Dim="Z_WAEHRUNG" attr4Dim="Z_BRANCHE" attr5Dim="Z_VGR_SEKTOR" attr6Dim="Z_BUNDESLAND" attr7Dim="Z_NUTS_3_REGIONEN" attr8Dim="Z_ALTER" attr9Dim="Z_BESCHAEFTIGUNGSGROESSENKLASSEN" attr10Dim="Z_AUSLANDSEINFLUSS" freq="A" unitMult="6" unitText="in millions Euro">
+      <values>
+        <obs value="-4422" periode="2024"/>
+      </values>
+    </dataSet>
+    <dataSet pos="VDBDFU55--KSALD--KUP" posTitle="Equity transactions by IDI excl. SPEs and real estate (UBO) (flows) " attr1="N" attr2="ZALCB6EU" attr3="000" attr4="000" attr5="000" attr6="00" attr7="0" attr8="0" attr9="0" attr10="0" attr1Dim="Z_AUSPRAEGUNG" attr2Dim="Z_DI_PARTNERLAND" attr3Dim="Z_WAEHRUNG" attr4Dim="Z_BRANCHE" attr5Dim="Z_VGR_SEKTOR" attr6Dim="Z_BUNDESLAND" attr7Dim="Z_NUTS_3_REGIONEN" attr8Dim="Z_ALTER" attr9Dim="Z_BESCHAEFTIGUNGSGROESSENKLASSEN" attr10Dim="Z_AUSLANDSEINFLUSS" freq="A" unitMult="6" unitText="in millions Euro">
+      <values>
+        <obs value="-1911" periode="2024"/>
+      </values>
+    </dataSet>
+    <dataSet pos="VDBDFU55--KSALD--KUP" posTitle="Equity transactions by IDI excl. SPEs and real estate (UBO) (flows) " attr1="N" attr2="00" attr3="000" attr4="C19-22N" attr5="000" attr6="00" attr7="0" attr8="0" attr9="0" attr10="0" attr1Dim="Z_AUSPRAEGUNG" attr2Dim="Z_DI_PARTNERLAND" attr3Dim="Z_WAEHRUNG" attr4Dim="Z_BRANCHE" attr5Dim="Z_VGR_SEKTOR" attr6Dim="Z_BUNDESLAND" attr7Dim="Z_NUTS_3_REGIONEN" attr8Dim="Z_ALTER" attr9Dim="Z_BESCHAEFTIGUNGSGROESSENKLASSEN" attr10Dim="Z_AUSLANDSEINFLUSS" freq="A" unitMult="6" unitText="in millions Euro">
+      <values>
+        <obs value="-416" periode="2024"/>
+      </values>
+    </dataSet>
+  </data>
+</OeNBData>
