@@ -6,8 +6,17 @@
 #' See \code{\link{oenb_dataset}} to obtain the required ID.
 #' @inheritParams oenb_dataset
 #'
-#' @return A data frame containing available frequencies and periods of a series.
+#' @return A data frame with the columns
+#' \describe{
+#'   \item{\code{frequency}}{the code of a frequency, such as \code{"M"}. It
+#'   is a value of the \code{freq} argument of \code{\link{oenb_data}}.}
+#'   \item{\code{available_period}}{the period for which data are available,
+#'   as the web service describes it, for example \code{"1998 - 2025"}.}
+#' }
+#' Each combination of a frequency and a period is listed once.
+#' A data frame without rows is returned if no frequencies are found.
 #' \code{NULL} is returned if the web service is not available.
+#' See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 #'
 #' @examples
 #' \donttest{
@@ -32,8 +41,10 @@ oenb_frequency <- function(id, pos, lang = "EN") {
   avail <- XML::getNodeSet(xml, "//periods/available", fun = XML::xmlToList)
   avail <- unlist(avail)
   if (length(freq) == 0 || length(avail) != length(freq)) {
-    message("No frequencies were found for position \"", pos,
-            "\" in data set \"", id, "\".")
+    oenb_inform(paste0("No frequencies were found for position \"", pos,
+                       "\" in data set \"", id, "\". See oenb_dataset() for ",
+                       "the position codes of a data set."),
+                "oenb_no_results", url = url)
     return(oenb_empty(c("frequency", "available_period")))
   }
 

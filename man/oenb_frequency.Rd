@@ -17,8 +17,17 @@ See \code{\link{oenb_dataset}} to obtain the required ID.}
 German and "EN" for English (default).}
 }
 \value{
-A data frame containing available frequencies and periods of a series.
+A data frame with the columns
+\describe{
+  \item{\code{frequency}}{the code of a frequency, such as \code{"M"}. It
+  is a value of the \code{freq} argument of \code{\link{oenb_data}}.}
+  \item{\code{available_period}}{the period for which data are available,
+  as the web service describes it, for example \code{"1998 - 2025"}.}
+}
+Each combination of a frequency and a period is listed once.
+A data frame without rows is returned if no frequencies are found.
 \code{NULL} is returned if the web service is not available.
+See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 }
 \description{
 Get available frequencies and periods of individual series from the OeNB's data web service.

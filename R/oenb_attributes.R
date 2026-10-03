@@ -6,8 +6,21 @@
 #' See \code{\link{oenb_dataset}} to obtain the required ID.
 #' @inheritParams oenb_dataset
 #'
-#' @return A data frame containing potential attributes of a series.
+#' @return A data frame with one row per available value of an attribute and the
+#' columns
+#' \describe{
+#'   \item{\code{attribute_code}}{the code of the attribute, such as
+#'   \code{"dval1"}. It is a name of the \code{attr} argument of
+#'   \code{\link{oenb_data}}.}
+#'   \item{\code{attribute}}{the description of the attribute.}
+#'   \item{\code{value_code}}{the code of the value, such as \code{"AT"}. It is
+#'   a value of the \code{attr} argument of \code{\link{oenb_data}}.}
+#'   \item{\code{value}}{the description of the value.}
+#' }
+#' Each value of an attribute is listed once.
+#' A data frame without rows is returned if no attributes are found.
 #' \code{NULL} is returned if the web service is not available.
+#' See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 #'
 #' @examples
 #' \donttest{
@@ -34,8 +47,10 @@ oenb_attributes <- function(id, pos, lang = "EN") {
   avail_code <- XML::xpathSApply(xml, "//auspraegung", XML::xmlGetAttr, "code")
   if (length(nr_structure) == 0 || length(avail_nr) == 0 ||
       length(avail_code) != length(avail_nr)) {
-    message("No attributes were found for position \"", pos,
-            "\" in data set \"", id, "\".")
+    oenb_inform(paste0("No attributes were found for position \"", pos,
+                       "\" in data set \"", id, "\". See oenb_dataset() for ",
+                       "the position codes of a data set."),
+                "oenb_no_results", url = url)
     return(oenb_empty(cols))
   }
 

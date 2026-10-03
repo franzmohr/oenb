@@ -37,8 +37,27 @@ See \code{\link{oenb_attributes}} to obtain possible choices.}
 German and "EN" for English (default).}
 }
 \value{
-A data frame. \code{NULL} is returned if the query does not return any
+A data frame with one row per observation. The columns are those that
+the web service reports, typically
+\describe{
+  \item{\code{period}}{the period of the observation, such as
+  \code{"2019-11"}.}
+  \item{\code{pos}, \code{postitle}}{the position code and the title of
+  the series.}
+  \item{\code{attr1}, \code{attr1dim}, \code{attr2}, ...}{the value of each
+  attribute and the name of that attribute. \code{attrN} corresponds to the
+  attribute \code{dvalN} of \code{\link{oenb_attributes}}. Series with
+  several values of an attribute have one row per value and period.}
+  \item{\code{freq}}{the frequency of the observation.}
+  \item{\code{unitmult}, \code{unittext}}{the unit of the values, for
+  example \code{"6"} and \code{"in millions Euro"}.}
+  \item{\code{value}}{the numeric value, in the unit reported in
+  \code{unittext}. It is not rescaled.}
+}
+\code{period} is always the first column and \code{value} the last.
+\code{NULL} is returned if the query does not return any
 data or if the web service is not available.
+See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 }
 \description{
 Download data sets from the OeNB's data web service \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.

@@ -6,8 +6,17 @@
 #' See \code{\link{oenb_dataset}} to obtain the required ID.
 #' @inheritParams oenb_dataset
 #'
-#' @return A data frame containing metadata on an indicator.
+#' @return A data frame with one row per field of the metadata and the columns
+#' \describe{
+#'   \item{\code{attribute}}{the name of the field, for example \code{"title"},
+#'   \code{"unit"}, \code{"source"} or \code{"last_update"}.}
+#'   \item{\code{description}}{the content of the field.}
+#' }
+#' The fields are those that the web service reports for the series. Fields
+#' that contain further fields are not included.
+#' A data frame without rows is returned if no metadata are found.
 #' \code{NULL} is returned if the web service is not available.
+#' See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 #'
 #' @examples
 #' \donttest{
@@ -31,8 +40,10 @@ oenb_metadata <- function(id, pos, lang = "EN") {
 
   meta <- XML::getNodeSet(xml, "//meta", fun = XML::xmlToList)
   if (length(meta) == 0) {
-    message("No metadata were found for position \"", pos,
-            "\" in data set \"", id, "\".")
+    oenb_inform(paste0("No metadata were found for position \"", pos,
+                       "\" in data set \"", id, "\". See oenb_dataset() for ",
+                       "the position codes of a data set."),
+                "oenb_no_results", url = url)
     return(oenb_empty(cols))
   }
   meta <- meta[[1]]
@@ -45,8 +56,10 @@ oenb_metadata <- function(id, pos, lang = "EN") {
   entries <- which(vapply(meta, function(x) {is.atomic(x) && length(x) == 1},
                           logical(1)))
   if (length(entries) == 0) {
-    message("No metadata were found for position \"", pos,
-            "\" in data set \"", id, "\".")
+    oenb_inform(paste0("No metadata were found for position \"", pos,
+                       "\" in data set \"", id, "\". See oenb_dataset() for ",
+                       "the position codes of a data set."),
+                "oenb_no_results", url = url)
     return(oenb_empty(cols))
   }
 

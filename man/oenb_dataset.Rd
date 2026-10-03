@@ -14,8 +14,15 @@ See \code{\link{oenb_toc}} to obtain the required ID.}
 German and "EN" for English (default).}
 }
 \value{
-A data frame containing the IDs and names of available indicators within a dataset.
+A data frame with one row per series of the data set and the columns
+\describe{
+  \item{\code{position_code}}{the position code of the series, which is the
+  \code{pos} argument of the other functions.}
+  \item{\code{description}}{the title of the series.}
+}
+A data frame without rows is returned if the data set contains no series.
 \code{NULL} is returned if the web service is not available.
+See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 }
 \description{
 Downloads a description of the contents of a specific dataset from the OeNB's data web service.

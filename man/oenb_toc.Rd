@@ -11,8 +11,14 @@ oenb_toc(lang = "EN")
 German and "EN" for English (default).}
 }
 \value{
-A data frame containing the IDs and titles of available datasets.
+A data frame with one row per data set and the columns
+\describe{
+  \item{\code{dataset_id}}{the ID of the data set, which is the \code{id}
+  argument of the other functions.}
+  \item{\code{description}}{the title of the data set.}
+}
 \code{NULL} is returned if the web service is not available.
+See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 }
 \description{
 Downloads the table of contents of the OeNB's statistical data web service.

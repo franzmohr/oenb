@@ -7,18 +7,38 @@
 #' @param x a vector of values that are pasted into a query string.
 #' @param url the URL of a request to the OeNB's data web service.
 #' @param cols names of the columns of an empty result.
+#' @param msg the text of a condition.
+#' @param class the specific class of a condition.
+#' @param ... further fields of a condition.
 #'
 #' @name oenb-internal
 #' @keywords internal
 #' @noRd
 NULL
 
+# Signal a message or raise an error with a class of the package, so that
+# calling code can tell the reasons for a NULL or an empty result apart without
+# parsing the text. See ?oenb for the classes and their fields.
+oenb_inform <- function(msg, class, ...) {
+  cond <- structure(class = c(class, "oenb_message", "message", "condition"),
+                    list(message = paste0(msg, "
+"), call = NULL, ...))
+  message(cond)
+  invisible(NULL)
+}
+
+oenb_abort <- function(msg, class, ...) {
+  cond <- structure(class = c(class, "oenb_error", "error", "condition"),
+                    list(message = msg, call = NULL, ...))
+  stop(cond)
+}
+
 # Stop if the requested language is not supported by the web service.
 oenb_check_lang <- function(lang) {
   if (!is.character(lang) || length(lang) != 1 || is.na(lang) ||
       !lang %in% c("DE", "EN")) {
-    stop("Specified language is not supported. Possible values are \"DE\" and \"EN\".",
-         call. = FALSE)
+    oenb_abort("Specified language is not supported. Possible values are \"DE\" and \"EN\".",
+               "oenb_invalid_argument")
   }
   invisible(NULL)
 }
@@ -30,7 +50,8 @@ oenb_check_lang <- function(lang) {
 oenb_encode <- function(x) {
   x <- as.character(x)
   if (anyNA(x)) {
-    stop("Arguments of a query must not contain missing values.", call. = FALSE)
+    oenb_abort("Arguments of a query must not contain missing values.",
+               "oenb_invalid_argument")
   }
   vapply(x, utils::URLencode, character(1), reserved = TRUE, USE.NAMES = FALSE)
 }
@@ -54,14 +75,16 @@ oenb_fetch <- function(url) {
   content <- tryCatch(suppressWarnings(readLines(url)),
                       error = function(e) NULL)
   if (is.null(content)) {
-    message("The data web service of the OeNB could not be reached. ",
-            "Please check your internet connection and try again later.")
+    oenb_inform(paste0("The data web service of the OeNB could not be reached. ",
+                       "Please check your internet connection and try again later."),
+                "oenb_unavailable", url = url)
     return(NULL)
   }
 
   xml <- tryCatch(XML::xmlParse(content), error = function(e) NULL)
   if (is.null(xml)) {
-    message("The response of the data web service of the OeNB could not be parsed.")
+    oenb_inform("The response of the data web service of the OeNB could not be parsed.",
+                "oenb_unparsable", url = url)
     return(NULL)
   }
 
@@ -73,8 +96,9 @@ oenb_fetch <- function(url) {
   errors <- gsub("\\s+", " ", trimws(unlist(errors)))
   errors <- errors[nzchar(errors)]
   if (length(errors) > 0) {
-    stop("The data web service of the OeNB returned an error: ",
-         paste(errors, collapse = " "), call. = FALSE)
+    oenb_abort(paste0("The data web service of the OeNB returned an error: ",
+                      paste(errors, collapse = " ")),
+               "oenb_service_error", url = url, service_message = errors)
   }
 
   return(xml)

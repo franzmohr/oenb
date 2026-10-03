@@ -6,8 +6,15 @@
 #' See \code{\link{oenb_toc}} to obtain the required ID.
 #' @inheritParams oenb_toc
 #'
-#' @return A data frame containing the IDs and names of available indicators within a dataset.
+#' @return A data frame with one row per series of the data set and the columns
+#' \describe{
+#'   \item{\code{position_code}}{the position code of the series, which is the
+#'   \code{pos} argument of the other functions.}
+#'   \item{\code{description}}{the title of the series.}
+#' }
+#' A data frame without rows is returned if the data set contains no series.
 #' \code{NULL} is returned if the web service is not available.
+#' See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 #'
 #' @examples
 #' \donttest{
@@ -40,8 +47,9 @@ oenb_dataset <- function(id, lang = "EN") {
                             stringsAsFactors = FALSE)
   code <- XML::xpathSApply(xml, filter, XML::xmlGetAttr, "id")
   if (length(series) == 0 || length(code) != length(series)) {
-    message("No indicators were found for data set \"", id, "\". ",
-            "See oenb_toc() for available data set IDs.")
+    oenb_inform(paste0("No indicators were found for data set \"", id, "\". ",
+                       "See oenb_toc() for available data set IDs."),
+                "oenb_no_results", url = url)
     return(oenb_empty(c("position_code", "description")))
   }
 

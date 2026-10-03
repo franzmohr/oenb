@@ -1,0 +1,101 @@
+#' oenb: Tools for the OeNB Data Web Service
+#'
+#' Access the statistical data of the Oesterreichische Nationalbank (OeNB)
+#' through its data web service
+#' \url{https://www.oenb.at/en/Statistics/User-Defined-Tables/webservice.html}.
+#' The package passes on what the web service returns. It does not rescale,
+#' repair or reinterpret the data.
+#'
+#' @section Workflow:
+#' Data are identified by the ID of a data set and the position code of a
+#' series within it. Neither can be guessed, so a query is usually built in
+#' four steps:
+#'
+#' \enumerate{
+#'   \item \code{\link{oenb_toc}()} lists the data sets. Its column
+#'   \code{dataset_id} is the \code{id} argument of all other functions.
+#'   \item \code{\link{oenb_dataset}(id)} lists the series of a data set. Its
+#'   column \code{position_code} is the \code{pos} argument of the functions
+#'   below.
+#'   \item \code{\link{oenb_attributes}(id, pos)} and
+#'   \code{\link{oenb_frequency}(id, pos)} list the choices that narrow a query:
+#'   the values of each attribute and the available frequencies and periods.
+#'   \code{\link{oenb_metadata}(id, pos)} describes the series, for example its
+#'   unit and source.
+#'   \item \code{\link{oenb_data}(id, pos, freq, attr, starttime, endtime)}
+#'   downloads the observations.
+#' }
+#'
+#' The choices of step 3 map onto the arguments of \code{oenb_data} as follows:
+#'
+#' \itemize{
+#'   \item \code{attr} is a named vector whose names are values of the column
+#'   \code{attribute_code} of \code{oenb_attributes} (\code{"dval1"},
+#'   \code{"dval2"}, ...) and whose values are taken from its column
+#'   \code{value_code}, for example \code{attr = c("dval1" = "AT")}.
+#'   \item \code{freq} is a value of the column \code{frequency} of
+#'   \code{oenb_frequency}, for example \code{"M"}.
+#'   \item In the result of \code{oenb_data} the attribute \code{dvalN} is
+#'   reported in the column \code{attrN}, and \code{attrNdim} names it.
+#' }
+#'
+#' @section Results:
+#' All functions return a data frame of character columns, except for the
+#' column \code{value} of \code{oenb_data}, which is numeric. Values are reported
+#' in the unit given by the columns \code{unittext} and \code{unitmult} and are
+#' not rescaled. The columns of each result are described under 'Value' on the
+#' help page of the function.
+#'
+#' Results that are empty and results that are \code{NULL} come with a message
+#' saying why. The argument \code{lang} selects the language of descriptions
+#' (\code{"EN"} or \code{"DE"}) of the descriptions in a result.
+#'
+#' @section Conditions:
+#' The messages and errors of the package carry classes, so that code can react
+#' to them without matching their text. Every message inherits from
+#' \code{"oenb_message"} and every error from \code{"oenb_error"}.
+#'
+#' \describe{
+#'   \item{\code{oenb_unavailable}}{Message. The web service could not be
+#'   reached. The function returns \code{NULL}. Retrying later may help.}
+#'   \item{\code{oenb_unparsable}}{Message. The response of the web service
+#'   could not be parsed. The function returns \code{NULL}.}
+#'   \item{\code{oenb_no_results}}{Message. The web service answered, but the
+#'   answer contains nothing for the query. \code{oenb_data} returns \code{NULL},
+#'   all other functions a data frame without rows. Check the IDs and the
+#'   choices of the query, as the message suggests.}
+#'   \item{\code{oenb_service_error}}{Error. The web service rejected the
+#'   query. The field \code{service_message} holds its explanation.}
+#'   \item{\code{oenb_invalid_argument}}{Error. An argument was rejected before
+#'   any request was made.}
+#' }
+#'
+#' All conditions except \code{oenb_invalid_argument} also have a field
+#' \code{url} holding the request that was sent.
+#'
+#' @examples
+#' \donttest{
+#' # Find the ID of a data set and the position code of a series
+#' toc <- oenb_toc()
+#' series <- oenb_dataset(id = "11")
+#'
+#' # Narrow the query and download the data
+#' oenb_attributes(id = "11", pos = "VDBFKBSC217000")
+#' oenb_frequency(id = "11", pos = "VDBFKBSC217000")
+#' x <- oenb_data(id = "11", pos = "VDBFKBSC217000", freq = "M",
+#'                attr = c("dval1" = "AT"), starttime = "2019-01")
+#'
+#' # Tell an unavailable service apart from a query without results
+#' x <- withCallingHandlers(
+#'   oenb_data(id = "11", pos = "VDBFKBSC217000", starttime = "1899-01",
+#'             endtime = "1899-12"),
+#'   oenb_no_results = function(m) {
+#'     # adjust the query
+#'   },
+#'   oenb_unavailable = function(m) {
+#'     # try again later
+#'   })
+#' }
+#'
+#' @keywords internal
+"_PACKAGE"

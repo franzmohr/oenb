@@ -1,3 +1,22 @@
+# oenb 0.1.1
+
+## Improvements
+
+* The new help page `?oenb` describes how a query is built, from finding the ID
+of a data set with `oenb_toc` to downloading the data with `oenb_data`, and how
+the results of `oenb_attributes` and `oenb_frequency` map onto the arguments of
+`oenb_data`.
+* The help page of each function lists the columns of its result.
+* The messages and errors of the package carry classes, so that code can tell
+the reasons for a `NULL` or an empty result apart without matching their text:
+`oenb_unavailable`, `oenb_unparsable` and `oenb_no_results` for messages, and
+`oenb_service_error` and `oenb_invalid_argument` for errors. They inherit from
+`oenb_message` and `oenb_error`, respectively. All but `oenb_invalid_argument`
+carry the URL of the request.
+The text of the messages is unchanged, except that the messages of
+`oenb_attributes`, `oenb_frequency` and `oenb_metadata` now point to
+`oenb_dataset` when nothing is found.
+
 # oenb 0.1.0
 
 ## Bug fixes

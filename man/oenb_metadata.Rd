@@ -17,8 +17,17 @@ See \code{\link{oenb_dataset}} to obtain the required ID.}
 German and "EN" for English (default).}
 }
 \value{
-A data frame containing metadata on an indicator.
+A data frame with one row per field of the metadata and the columns
+\describe{
+  \item{\code{attribute}}{the name of the field, for example \code{"title"},
+  \code{"unit"}, \code{"source"} or \code{"last_update"}.}
+  \item{\code{description}}{the content of the field.}
+}
+The fields are those that the web service reports for the series. Fields
+that contain further fields are not included.
+A data frame without rows is returned if no metadata are found.
 \code{NULL} is returned if the web service is not available.
+See \code{\link{oenb}} for the workflow and the conditions that are signalled.
 }
 \description{
 Get metadata on individual series from the OeNB's data web service.
